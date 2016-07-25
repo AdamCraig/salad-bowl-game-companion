@@ -15,11 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ui.SetUpActivity"/>
-        <activity android:name=".ui.AboutActivity"/>
-        <activity android:name=".ui.RulesActivity"/>
-
+        <activity android:name=".ui.SetUpActivity" />
+        <activity android:name=".ui.AboutActivity" />
+        <activity android:name=".ui.RulesActivity" />
+        <activity android:name=".ui.QuickModeActivity" />
+        <activity android:name=".ui.CreativeModeActivity"></activity>
     </application>
 
 </manifest>

@@ -7,6 +7,70 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.epicodus.saladbowlcompanion.SetUpActivity">
+    tools:context="com.epicodus.saladbowlcompanion.ui.SetUpActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How many teams of 2?"
+        android:id="@+id/teamsTextView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teamEditText"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/teamsTextView"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What mode?"
+        android:id="@+id/modeTextView"
+        android:layout_above="@+id/creativeModeButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="44dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quick"
+        android:id="@+id/quickModeButton"
+        android:layout_marginBottom="90dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/teamsTextView"
+        android:layout_toStartOf="@+id/teamsTextView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Custom"
+        android:id="@+id/creativeModeButton"
+        android:layout_alignTop="@+id/quickModeButton"
+        android:layout_toRightOf="@+id/modeTextView"
+        android:layout_toEndOf="@+id/modeTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="\u2022 The words will be randomly generated"
+        android:id="@+id/textView"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_alignLeft="@+id/quickModeButton"
+        android:layout_alignStart="@+id/quickModeButton"
+        android:layout_toLeftOf="@+id/modeTextView"
+        android:layout_toStartOf="@+id/modeTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="\u2022 You will have to put in the words"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/creativeModeButton"
+        android:layout_alignLeft="@+id/creativeModeButton"
+        android:layout_alignStart="@+id/creativeModeButton"/>
 
 </RelativeLayout>

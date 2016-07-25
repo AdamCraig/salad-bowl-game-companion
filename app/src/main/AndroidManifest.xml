@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.epicodus.saladbowlcompanion">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -17,11 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ui.SetUpActivity"/>
-        <activity android:name=".ui.AboutActivity"/>
-        <activity android:name=".ui.RulesActivity"/>
-
+        <activity android:name=".ui.SetUpActivity" />
+        <activity android:name=".ui.AboutActivity" />
+        <activity android:name=".ui.RulesActivity" />
+        <activity android:name=".ui.GameActivity"></activity>
     </application>
 
 </manifest>

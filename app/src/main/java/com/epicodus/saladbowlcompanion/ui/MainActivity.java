@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
 
-//        if (view == mRulesButton) {
-//            Intent intent = new Intent (MainActivity.this, RulesActivity.class);
-//            startActivity(intent);
-//        }
+        if (view == mRulesButton) {
+            Intent intent = new Intent (MainActivity.this, RulesActivity.class);
+            startActivity(intent);
+        }
 
         if (view == mAboutTextView) {
             Intent intent = new Intent (MainActivity.this, AboutActivity.class);

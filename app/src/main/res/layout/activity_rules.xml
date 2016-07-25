@@ -9,4 +9,111 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.epicodus.saladbowlcompanion.RulesActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Game Rules"
+        android:id="@+id/rulesTitleTextView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salad Bowl is a fast-paced word-guessing party game meant for teams of two. On each team's turn, one person (the 'actor') is assigned a series of words and tries to get their partner (the 'guesser') to guess as many words as they can in 60 seconds. The game has three rounds, each of which have their own rules."
+        android:id="@+id/introTextView"
+        android:layout_below="@+id/rulesTitleTextView"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="center"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="In Round 1, the actor describes their assigned word to the guesser, using any words OTHER than the word itself."
+        android:id="@+id/round1TextView"
+        android:layout_below="@+id/introTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:drawableLeft="@drawable/abc_ic_star_black_36dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:drawableTint="@color/colorPrimaryDark" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="In Round 2, the actor chooses a SINGLE word (or 'key word') for the guesser to use. This word cannot be changed."
+        android:id="@+id/round2TextView"
+        android:drawableLeft="@drawable/abc_ic_star_black_36dp"
+        android:layout_below="@+id/round1TextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/colorAccent"
+        android:drawableTint="@color/colorAccent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="In Round 3, the actor may not make any noise, and only explain their word via gestures."
+        android:id="@+id/round3TextView"
+        android:drawableLeft="@drawable/abc_ic_star_black_36dp"
+        android:textColor="@color/material_deep_teal_500"
+        android:layout_below="@+id/round2TextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:drawableTint="@color/accent_material_light" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Team members switch roles between actor and guesser every turn. During each round, teams take turns guessing until the pool of words is empty."
+        android:id="@+id/outroTextView"
+        android:textAlignment="center"
+        android:textSize="15sp"
+        android:layout_below="@+id/round3TextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Keep in mind, the SAME set of words is used for all three rounds!"
+        android:id="@+id/reminderTextView"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_below="@+id/outroTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/crownImageView"
+        android:layout_below="@+id/reminderTextView"
+        android:layout_centerHorizontal="true"
+        android:src="@android:drawable/btn_star_big_on" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="At the end of three rounds, total scores are added up and a winner is crowned!"
+        android:id="@+id/winnerTextView"
+        android:textAlignment="center"
+        android:textSize="15sp"
+        android:layout_below="@+id/crownImageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" />
+
+
+
 </RelativeLayout>

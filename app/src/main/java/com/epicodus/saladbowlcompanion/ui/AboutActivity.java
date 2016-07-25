@@ -1,13 +1,15 @@
-package com.epicodus.saladbowlcompanion;
+package com.epicodus.saladbowlcompanion.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SetUpActivity extends AppCompatActivity {
+import com.epicodus.saladbowlcompanion.R;
+
+public class AboutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_set_up);
+        setContentView(R.layout.activity_about);
     }
 }

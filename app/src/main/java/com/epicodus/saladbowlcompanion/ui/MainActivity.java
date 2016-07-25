@@ -1,4 +1,4 @@
-package com.epicodus.saladbowlcompanion;
+package com.epicodus.saladbowlcompanion.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.epicodus.saladbowlcompanion.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -33,10 +35,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
 
-        if (view == mRulesButton) {
-            Intent intent = new Intent (MainActivity.this, RulesActivity.class);
-            startActivity(intent);
-        }
+//        if (view == mRulesButton) {
+//            Intent intent = new Intent (MainActivity.this, RulesActivity.class);
+//            startActivity(intent);
+//        }
 
         if (view == mAboutTextView) {
             Intent intent = new Intent (MainActivity.this, AboutActivity.class);

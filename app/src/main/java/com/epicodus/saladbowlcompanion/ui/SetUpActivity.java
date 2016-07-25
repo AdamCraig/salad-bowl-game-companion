@@ -37,10 +37,12 @@ public class SetUpActivity extends AppCompatActivity implements View.OnClickList
         Log.v("SetUpActivity", "the number of teams is: " + team);
         if (view == mQuickModeButton) {
             Intent intent = new Intent(SetUpActivity.this, QuickModeActivity.class);
+            intent.putExtra("teams", team);
             startActivity(intent);
         }
         if (view == mCreativeModeButton) {
             Intent intent = new Intent(SetUpActivity.this, CreativeModeActivity.class);
+            intent.putExtra("teams", team);
             startActivity(intent);
         }
 

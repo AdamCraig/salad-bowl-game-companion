@@ -74,7 +74,10 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View view) {
         Button pressedButton = (Button) view;
         String letter = pressedButton.getText().toString().toLowerCase();
-        Log.v("Filtered Array", filterByLetter(masterWordList, letter) + "");
+
+        Intent intent = new Intent(QuickModeActivity.this, GameActivity.class);
+        intent.putExtra("gameWordList", filterByLetter(masterWordList, letter));
+        startActivity(intent);
     }
 
     public ArrayList<String> filterByLetter (ArrayList<String> masterWordList, String letterToFilterBy) {
@@ -85,7 +88,6 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
                 filteredArray.add(masterWordList.get(i));
             }
         }
-        Log.v("Size", filteredArray.size() + "");
         return filteredArray;
     }
 }

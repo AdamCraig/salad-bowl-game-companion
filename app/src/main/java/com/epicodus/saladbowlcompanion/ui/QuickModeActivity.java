@@ -27,21 +27,17 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
     @Bind(R.id.GButton) Button GButton;
     @Bind(R.id.HButton) Button HButton;
     @Bind(R.id.IButton) Button IButton;
-    @Bind(R.id.JButton) Button JButton;
-    @Bind(R.id.KButton) Button KButton;
     @Bind(R.id.LButton) Button LButton;
     @Bind(R.id.MButton) Button MButton;
     @Bind(R.id.NButton) Button NButton;
     @Bind(R.id.OButton) Button OButton;
     @Bind(R.id.PButton) Button PButton;
-    @Bind(R.id.QButton) Button QButton;
     @Bind(R.id.RButton) Button RButton;
     @Bind(R.id.SButton) Button SButton;
     @Bind(R.id.TButton) Button TButton;
     @Bind(R.id.UButton) Button UButton;
     @Bind(R.id.VButton) Button VButton;
     @Bind(R.id.WButton) Button WButton;
-    @Bind(R.id.YButton) Button YButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,21 +57,17 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
         GButton.setOnClickListener(this);
         HButton.setOnClickListener(this);
         IButton.setOnClickListener(this);
-        JButton.setOnClickListener(this);
-        KButton.setOnClickListener(this);
         LButton.setOnClickListener(this);
         MButton.setOnClickListener(this);
         NButton.setOnClickListener(this);
         OButton.setOnClickListener(this);
         PButton.setOnClickListener(this);
-        QButton.setOnClickListener(this);
         RButton.setOnClickListener(this);
         SButton.setOnClickListener(this);
         TButton.setOnClickListener(this);
         UButton.setOnClickListener(this);
         VButton.setOnClickListener(this);
         WButton.setOnClickListener(this);
-        YButton.setOnClickListener(this);
     }
 
     @Override

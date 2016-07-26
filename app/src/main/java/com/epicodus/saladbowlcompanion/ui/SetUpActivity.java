@@ -27,6 +27,7 @@ public class SetUpActivity extends AppCompatActivity implements View.OnClickList
 
     public ArrayList<String> mAnimals = new ArrayList<>();
     public ArrayList<String> mMoods = new ArrayList<>();
+    public ArrayList<String> mFiveLetterWords = new ArrayList<>();
     public ArrayList<String> mSixLetterWords = new ArrayList<>();
 
     public ArrayList<String> mMasterWordList = new ArrayList<>();
@@ -43,6 +44,7 @@ public class SetUpActivity extends AppCompatActivity implements View.OnClickList
 
         getAnimalWords();
         getMoodWords();
+        getFiveLetterWords();
         getSixLetterWords();
 
         mQuickModeButton.setOnClickListener(this);
@@ -124,6 +126,32 @@ public class SetUpActivity extends AppCompatActivity implements View.OnClickList
         });
     }
 
+    private void getFiveLetterWords() {
+        final WordService wordService = new WordService();
+        wordService.getFiveLetterWords(new Callback() {
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) {
+                mFiveLetterWords = wordService.processFiveLetterResults(response);
+                mMasterWordList.addAll(mFiveLetterWords);
+
+                SetUpActivity.this.runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                    }
+                });
+
+            }
+        });
+    }
+
     private void getSixLetterWords() {
         final WordService wordService = new WordService();
         wordService.getSixLetterWords(new Callback() {
@@ -149,5 +177,7 @@ public class SetUpActivity extends AppCompatActivity implements View.OnClickList
             }
         });
     }
+
+
 }
 

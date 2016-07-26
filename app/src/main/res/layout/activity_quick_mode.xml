@@ -120,38 +120,14 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="J"
-        android:id="@+id/JButton"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:padding="20dp"
-        android:layout_alignTop="@+id/IButton"
-        android:layout_toLeftOf="@+id/GButton"
-        android:layout_toStartOf="@+id/GButton" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="K"
-        android:id="@+id/KButton"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:padding="20dp"
-        android:layout_alignTop="@+id/JButton"
-        android:layout_toLeftOf="@+id/HButton"
-        android:layout_toStartOf="@+id/HButton" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="L"
         android:id="@+id/LButton"
         android:textSize="30sp"
         android:textStyle="bold"
         android:padding="20dp"
-        android:layout_alignTop="@+id/KButton"
-        android:layout_toRightOf="@+id/KButton"
-        android:layout_toEndOf="@+id/KButton" />
+        android:layout_alignTop="@+id/IButton"
+        android:layout_toRightOf="@+id/IButton"
+        android:layout_toEndOf="@+id/IButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -161,9 +137,9 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:padding="20dp"
-        android:layout_below="@+id/IButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignTop="@+id/LButton"
+        android:layout_toRightOf="@+id/LButton"
+        android:layout_toEndOf="@+id/LButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -174,8 +150,8 @@
         android:textStyle="bold"
         android:padding="20dp"
         android:layout_alignTop="@+id/MButton"
-        android:layout_toLeftOf="@+id/KButton"
-        android:layout_toStartOf="@+id/KButton" />
+        android:layout_alignRight="@+id/HButton"
+        android:layout_alignEnd="@+id/HButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -185,9 +161,9 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:padding="20dp"
-        android:layout_alignTop="@+id/NButton"
-        android:layout_toLeftOf="@+id/LButton"
-        android:layout_toStartOf="@+id/LButton" />
+        android:layout_below="@+id/IButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -197,21 +173,9 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:padding="20dp"
-        android:layout_alignTop="@+id/OButton"
-        android:layout_alignRight="@+id/LButton"
-        android:layout_alignEnd="@+id/LButton" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Q"
-        android:id="@+id/QButton"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:padding="20dp"
-        android:layout_below="@+id/MButton"
-        android:layout_toLeftOf="@+id/NButton"
-        android:layout_toStartOf="@+id/NButton" />
+        android:layout_below="@+id/IButton"
+        android:layout_toRightOf="@+id/IButton"
+        android:layout_toEndOf="@+id/IButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -221,9 +185,9 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:padding="20dp"
-        android:layout_alignTop="@+id/QButton"
-        android:layout_toRightOf="@+id/QButton"
-        android:layout_toEndOf="@+id/QButton" />
+        android:layout_below="@+id/LButton"
+        android:layout_toRightOf="@+id/PButton"
+        android:layout_toEndOf="@+id/PButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -233,9 +197,9 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:padding="20dp"
-        android:layout_alignTop="@+id/RButton"
-        android:layout_toRightOf="@+id/RButton"
-        android:layout_toEndOf="@+id/RButton" />
+        android:layout_below="@+id/MButton"
+        android:layout_toRightOf="@+id/MButton"
+        android:layout_toEndOf="@+id/MButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -245,9 +209,9 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:padding="20dp"
-        android:layout_alignTop="@+id/SButton"
-        android:layout_alignRight="@+id/PButton"
-        android:layout_alignEnd="@+id/PButton" />
+        android:layout_below="@+id/OButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -257,9 +221,9 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:padding="20dp"
-        android:layout_below="@+id/QButton"
-        android:layout_toLeftOf="@+id/RButton"
-        android:layout_toStartOf="@+id/RButton" />
+        android:layout_alignTop="@+id/TButton"
+        android:layout_toRightOf="@+id/TButton"
+        android:layout_toEndOf="@+id/TButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -269,9 +233,9 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:padding="20dp"
-        android:layout_alignTop="@+id/UButton"
-        android:layout_toRightOf="@+id/UButton"
-        android:layout_toEndOf="@+id/UButton" />
+        android:layout_below="@+id/PButton"
+        android:layout_toRightOf="@+id/PButton"
+        android:layout_toEndOf="@+id/PButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -282,19 +246,7 @@
         android:textStyle="bold"
         android:padding="20dp"
         android:layout_alignTop="@+id/VButton"
-        android:layout_toRightOf="@+id/VButton"
-        android:layout_toEndOf="@+id/VButton" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Y"
-        android:id="@+id/YButton"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:padding="20dp"
-        android:layout_alignTop="@+id/WButton"
-        android:layout_toRightOf="@+id/WButton"
-        android:layout_toEndOf="@+id/WButton" />
+        android:layout_alignRight="@+id/SButton"
+        android:layout_alignEnd="@+id/SButton" />
 
 </RelativeLayout>

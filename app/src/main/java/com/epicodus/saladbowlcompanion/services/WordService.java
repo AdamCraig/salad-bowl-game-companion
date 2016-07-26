@@ -8,6 +8,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -33,15 +34,15 @@ public class WordService {
     }
 
     public ArrayList<String> processAnimalResults(Response response) {
-        ArrayList<String> animals = new ArrayList<>();
-
+        ArrayList<String> words = new ArrayList<>();
         try {
            String jsonData = response.body().string();
            if (response.isSuccessful()) {
-               JSONObject animalListJSON = new JSONObject(jsonData);
-               JSONArray animalsJSON = animalListJSON.getJSONObject("data").getJSONArray("animals");
-               for (int i = 0; i < animalsJSON.length(); i++) {
-                   animals.add(animalsJSON.getString(i));
+
+               JSONObject wordsListJSON = new JSONObject(jsonData);
+               JSONArray wordsJSON = wordsListJSON.getJSONObject("data").getJSONArray("animals");
+               for (int i = 0; i < wordsJSON.length(); i++) {
+                   words.add(wordsJSON.getString(i));
                }
 
            }
@@ -50,7 +51,44 @@ public class WordService {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.v("animals", animals + "");
-        return animals;
+        Log.v("animal words", words + "");
+        return words;
+    }
+
+    public static void getMoodWords(Callback callback) {
+        OkHttpClient client = new OkHttpClient.Builder()
+                .build();
+
+        String url = "http://corpora-api.herokuapp.com/humans/moods";
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Call call = client.newCall(request);
+        call.enqueue(callback);
+
+    }
+
+    public ArrayList<String> processMoodResults(Response response) {
+        ArrayList<String> words = new ArrayList<>();
+        try {
+            String jsonData = response.body().string();
+            if (response.isSuccessful()) {
+
+                JSONObject wordsListJSON = new JSONObject(jsonData);
+                JSONArray wordsJSON = wordsListJSON.getJSONObject("data").getJSONArray("moods");
+                for (int i = 0; i < wordsJSON.length(); i++) {
+                    words.add(wordsJSON.getString(i));
+                }
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.v("mood words", words + "");
+        return words;
     }
 }

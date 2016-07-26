@@ -9,9 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.epicodus.saladbowlcompanion.R;
+import com.epicodus.saladbowlcompanion.services.WordService;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class SetUpActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.quickModeButton)
@@ -21,8 +28,14 @@ public class SetUpActivity extends AppCompatActivity implements View.OnClickList
     @Bind(R.id.teamEditText)
     EditText mTeamEditText;
 
-    int team;
+    public ArrayList<String> mAnimals = new ArrayList<>();
+    public ArrayList<String> mMoods = new ArrayList<>();
 
+    public ArrayList<String> mMasterWordList = new ArrayList<>();
+
+    //TODO: SET BUTTERKNIFE BINDS FOR GAME WORDS
+
+    int team;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +43,8 @@ public class SetUpActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_set_up);
         ButterKnife.bind(this);
 
+        getAnimalWords();
+        getMoodWords();
         mQuickModeButton.setOnClickListener(this);
         mCreativeModeButton.setOnClickListener(this);
     }
@@ -52,6 +67,58 @@ public class SetUpActivity extends AppCompatActivity implements View.OnClickList
             startActivity(intent);
 
         }
+    }
+
+    private void getAnimalWords() {
+        final WordService wordService = new WordService();
+        wordService.getAnimalWords(new Callback() {
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) {
+                mAnimals = wordService.processAnimalResults(response);
+                mMasterWordList.addAll(mAnimals);
+
+                SetUpActivity.this.runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                    }
+                });
+
+            }
+        });
+    }
+
+    private void getMoodWords() {
+        final WordService wordService = new WordService();
+        wordService.getMoodWords(new Callback() {
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) {
+                mMoods = wordService.processMoodResults(response);
+                mMasterWordList.addAll(mMoods);
+
+                SetUpActivity.this.runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                    }
+                });
+
+            }
+        });
     }
 }
 

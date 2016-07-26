@@ -50,7 +50,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         Log.v("wordList", wordList + "");
         countDownTimer.start();
-        mWordTextView.setText(wordsFromApi.get(wordCounter));
 
     }
 

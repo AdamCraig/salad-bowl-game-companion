@@ -20,9 +20,10 @@
         <activity android:name=".ui.SetUpActivity" />
         <activity android:name=".ui.AboutActivity" />
         <activity android:name=".ui.RulesActivity" />
-        <activity android:name=".ui.GameActivity"></activity>
+        <activity android:name=".ui.GameActivity" />
         <activity android:name=".ui.QuickModeActivity" />
-        <activity android:name=".ui.CreativeModeActivity"></activity>
+        <activity android:name=".ui.CreativeModeActivity" />
+        <activity android:name=".ui.TeamTransitionsActivity"></activity>
     </application>
 
 </manifest>

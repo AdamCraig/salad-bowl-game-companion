@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import android.util.Log;
 import com.epicodus.saladbowlcompanion.R;
@@ -20,6 +21,12 @@ import okhttp3.Response;
 
 public class GameActivity extends AppCompatActivity {
     @Bind(R.id.timerTextView) TextView mTimerTextView;
+    @Bind(R.id.teamNameTextView) TextView mTeamNameTextView;
+    @Bind(R.id.roundTextView) TextView mRoundTextView;
+    @Bind(R.id.roundRulesTextView) TextView mRoundRulesTextView;
+    @Bind(R.id.wordTextView) TextView mWordTextView;
+    @Bind(R.id.guessButton) Button mGuessButton;
+    @Bind(R.id.passButton) Button mPassButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +43,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
 
-    CountDownTimer countDownTimer = new CountDownTimer(60000, 1000) {
+    CountDownTimer countDownTimer = new CountDownTimer(6000, 1000) {
         // https://developer.android.com/reference/android/os/CountDownTimer.html
 
         public void onTick(long millisUntilFinished) {
@@ -45,6 +52,8 @@ public class GameActivity extends AppCompatActivity {
 
         public void onFinish() {
             mTimerTextView.setText("done!");
+            Intent intent = new Intent (GameActivity.this, TeamTransitionsActivity.class);
+            startActivity(intent);
         }
     };
 

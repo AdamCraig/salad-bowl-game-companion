@@ -70,7 +70,6 @@ public class SetUpActivity extends AppCompatActivity implements View.OnClickList
             intent.putExtra("teams", team);
 
             startActivity(intent);
-
         }
     }
 

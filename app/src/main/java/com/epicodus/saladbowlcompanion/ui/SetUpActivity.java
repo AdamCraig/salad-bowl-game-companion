@@ -40,7 +40,7 @@ public class SetUpActivity extends AppCompatActivity implements View.OnClickList
             mTeamEditText.setError("Enter number of teams");
 
         } else if (view == mQuickModeButton) {
-            team = Integer.parseInt(mTeamEditText.getText().toString());
+            team = Integer.parseInt(mTeamEditText.getText().toString());  // might refactor here
             Log.v("SetUpActivity", "the number of teams is: " + team);
             Intent intent = new Intent(SetUpActivity.this, QuickModeActivity.class);
             intent.putExtra("teams", team);

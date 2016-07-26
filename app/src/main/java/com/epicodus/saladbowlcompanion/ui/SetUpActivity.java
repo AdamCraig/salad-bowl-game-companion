@@ -21,12 +21,9 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class SetUpActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.quickModeButton)
-    Button mQuickModeButton;
-    @Bind(R.id.creativeModeButton)
-    Button mCreativeModeButton;
-    @Bind(R.id.teamEditText)
-    EditText mTeamEditText;
+    @Bind(R.id.quickModeButton) Button mQuickModeButton;
+    @Bind(R.id.creativeModeButton) Button mCreativeModeButton;
+    @Bind(R.id.teamEditText) EditText mTeamEditText;
 
     public ArrayList<String> mAnimals = new ArrayList<>();
     public ArrayList<String> mMoods = new ArrayList<>();
@@ -56,17 +53,20 @@ public class SetUpActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         if (mTeamEditText.getText().toString().equals("")) {
             mTeamEditText.setError("Enter number of teams");
-
         } else if (view == mQuickModeButton) {
             team = Integer.parseInt(mTeamEditText.getText().toString());  // might refactor here
-            Log.v("SetUpActivity", "the number of teams is: " + team);
+
             Intent intent = new Intent(SetUpActivity.this, QuickModeActivity.class);
             intent.putExtra("teams", team);
+            intent.putExtra("masterWordList", mMasterWordList);
+
             startActivity(intent);
         } else if (view == mCreativeModeButton) {
             team = Integer.parseInt(mTeamEditText.getText().toString());
+
             Intent intent = new Intent(SetUpActivity.this, CreativeModeActivity.class);
             intent.putExtra("teams", team);
+
             startActivity(intent);
 
         }
@@ -111,8 +111,6 @@ public class SetUpActivity extends AppCompatActivity implements View.OnClickList
             public void onResponse(Call call, Response response) {
                 mMoods = wordService.processMoodResults(response);
                 mMasterWordList.addAll(mMoods);
-
-                Log.v("mMasterWordList", mMasterWordList + "");
 
                 SetUpActivity.this.runOnUiThread(new Runnable() {
 

@@ -52,7 +52,6 @@ public class WordService {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.v("animal words", words + "");
         return words;
     }
 
@@ -89,7 +88,6 @@ public class WordService {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.v("mood words", words + "");
         return words;
     }
 

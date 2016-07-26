@@ -65,7 +65,6 @@ public class SetUpActivity extends AppCompatActivity implements View.OnClickList
             Intent intent = new Intent(SetUpActivity.this, CreativeModeActivity.class);
             intent.putExtra("teams", team);
             startActivity(intent);
-
         }
     }
 

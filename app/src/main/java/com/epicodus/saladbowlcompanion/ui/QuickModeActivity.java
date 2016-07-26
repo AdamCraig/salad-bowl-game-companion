@@ -18,7 +18,30 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
 
     ArrayList<String> masterWordList = new ArrayList<>();
 
-    @Bind(R.id.TButton) Button mTButton;
+    @Bind(R.id.AButton) Button AButton;
+    @Bind(R.id.BButton) Button BButton;
+    @Bind(R.id.CButton) Button CButton;
+    @Bind(R.id.DButton) Button DButton;
+    @Bind(R.id.EButton) Button EButton;
+    @Bind(R.id.FButton) Button FButton;
+    @Bind(R.id.GButton) Button GButton;
+    @Bind(R.id.HButton) Button HButton;
+    @Bind(R.id.IButton) Button IButton;
+    @Bind(R.id.JButton) Button JButton;
+    @Bind(R.id.KButton) Button KButton;
+    @Bind(R.id.LButton) Button LButton;
+    @Bind(R.id.MButton) Button MButton;
+    @Bind(R.id.NButton) Button NButton;
+    @Bind(R.id.OButton) Button OButton;
+    @Bind(R.id.PButton) Button PButton;
+    @Bind(R.id.QButton) Button QButton;
+    @Bind(R.id.RButton) Button RButton;
+    @Bind(R.id.SButton) Button SButton;
+    @Bind(R.id.TButton) Button TButton;
+    @Bind(R.id.UButton) Button UButton;
+    @Bind(R.id.VButton) Button VButton;
+    @Bind(R.id.WButton) Button WButton;
+    @Bind(R.id.YButton) Button YButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +52,37 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
         Intent intent = getIntent();
         masterWordList = intent.getStringArrayListExtra("masterWordList");
 
-        mTButton.setOnClickListener(this);
+        AButton.setOnClickListener(this);
+        BButton.setOnClickListener(this);
+        CButton.setOnClickListener(this);
+        DButton.setOnClickListener(this);
+        EButton.setOnClickListener(this);
+        FButton.setOnClickListener(this);
+        GButton.setOnClickListener(this);
+        HButton.setOnClickListener(this);
+        IButton.setOnClickListener(this);
+        JButton.setOnClickListener(this);
+        KButton.setOnClickListener(this);
+        LButton.setOnClickListener(this);
+        MButton.setOnClickListener(this);
+        NButton.setOnClickListener(this);
+        OButton.setOnClickListener(this);
+        PButton.setOnClickListener(this);
+        QButton.setOnClickListener(this);
+        RButton.setOnClickListener(this);
+        SButton.setOnClickListener(this);
+        TButton.setOnClickListener(this);
+        UButton.setOnClickListener(this);
+        VButton.setOnClickListener(this);
+        WButton.setOnClickListener(this);
+        YButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        if (view == mTButton) {
-            Log.v("Filtered Array", filterByLetter(masterWordList, "t") + "");
-
-        }
+        Button pressedButton = (Button) view;
+        String letter = pressedButton.getText().toString().toLowerCase();
+        Log.v("Filtered Array", filterByLetter(masterWordList, letter) + "");
     }
 
     public ArrayList<String> filterByLetter (ArrayList<String> masterWordList, String letterToFilterBy) {

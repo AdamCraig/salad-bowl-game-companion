@@ -43,9 +43,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         ButterKnife.bind(this);
-
         mGuessButton.setOnClickListener(this);
         mPassButton.setOnClickListener(this);
+        Intent intent = getIntent();
+        ArrayList<String> wordList = intent.getStringArrayListExtra("gameWordList");
+
+        Log.v("wordList", wordList + "");
         countDownTimer.start();
         mWordTextView.setText(wordsFromApi.get(wordCounter));
 

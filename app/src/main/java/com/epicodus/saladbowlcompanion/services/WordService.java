@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -51,7 +52,6 @@ public class WordService {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.v("animal words", words + "");
         return words;
     }
 
@@ -88,7 +88,84 @@ public class WordService {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.v("mood words", words + "");
+        return words;
+    }
+
+    public static void getFiveLetterWords(Callback callback) {
+        OkHttpClient client = new OkHttpClient.Builder()
+                .build();
+
+        String url = "http://corpora-api.herokuapp.com/words/word_clues/clues_five";
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Call call = client.newCall(request);
+        call.enqueue(callback);
+
+    }
+
+    public ArrayList<String> processFiveLetterResults(Response response) {
+        ArrayList<String> words = new ArrayList<>();
+        try {
+            String jsonData = response.body().string();
+            if (response.isSuccessful()) {
+
+                JSONObject wordsListJSON = new JSONObject(jsonData);
+                JSONObject wordsJSON = wordsListJSON.getJSONObject("data").getJSONObject("data");
+                Iterator keys = wordsJSON.keys();
+                while (keys.hasNext()) {
+                    Object key = keys.next();
+                    String arrayName = (String) key;
+                    words.add(arrayName);
+                }
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return words;
+    }
+
+    public static void getSixLetterWords(Callback callback) {
+        OkHttpClient client = new OkHttpClient.Builder()
+                .build();
+
+        String url = "http://corpora-api.herokuapp.com/words/word_clues/clues_six";
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Call call = client.newCall(request);
+        call.enqueue(callback);
+
+    }
+
+    public ArrayList<String> processSixLetterResults(Response response) {
+        ArrayList<String> words = new ArrayList<>();
+        try {
+            String jsonData = response.body().string();
+            if (response.isSuccessful()) {
+
+                JSONObject wordsListJSON = new JSONObject(jsonData);
+                JSONObject wordsJSON = wordsListJSON.getJSONObject("data").getJSONObject("data");
+                Iterator keys = wordsJSON.keys();
+                while (keys.hasNext()) {
+                    Object key = keys.next();
+                    String arrayName = (String) key;
+                    words.add(arrayName);
+                }
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         return words;
     }
 }

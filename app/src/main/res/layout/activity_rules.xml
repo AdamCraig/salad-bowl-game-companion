@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.epicodus.saladbowlcompanion.ui.RulesActivity">
+    tools:context="com.epicodus.saladbowlcompanion.ui.RulesActivity"
+    android:background="@drawable/paper_background">
 
     <TextView
         android:layout_width="wrap_content"
@@ -16,7 +17,8 @@
         android:text="Game Rules"
         android:id="@+id/rulesTitleTextView"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,7 +43,8 @@
         android:layout_below="@+id/introTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:drawableLeft="@drawable/abc_ic_star_black_36dp"
+        android:drawableLeft="@drawable/ic_textsms_black_24dp"
+        android:drawablePadding="7dp"
         android:textColor="@color/colorPrimaryDark"
         android:drawableTint="@color/colorPrimaryDark" />
 
@@ -51,7 +54,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="In Round 2, the actor chooses a SINGLE word (or 'key word') for the guesser to use. This word cannot be changed."
         android:id="@+id/round2TextView"
-        android:drawableLeft="@drawable/abc_ic_star_black_36dp"
+        android:drawableLeft="@drawable/ic_vpn_key_black_24dp"
+        android:drawablePadding="7dp"
         android:layout_below="@+id/round1TextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -65,7 +69,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="In Round 3, the actor may not make any noise, and only explain their word via gestures."
         android:id="@+id/round3TextView"
-        android:drawableLeft="@drawable/abc_ic_star_black_36dp"
+        android:drawableLeft="@drawable/ic_directions_walk_black_24dp"
+        android:drawablePadding="7dp"
         android:textColor="@color/material_deep_teal_500"
         android:layout_below="@+id/round2TextView"
         android:layout_centerHorizontal="true"
@@ -96,12 +101,13 @@
         android:layout_marginTop="5dp" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:id="@+id/crownImageView"
         android:layout_below="@+id/reminderTextView"
         android:layout_centerHorizontal="true"
-        android:src="@android:drawable/btn_star_big_on" />
+        android:src="@drawable/crown"
+        android:paddingTop="5dp" />
 
     <TextView
         android:layout_width="wrap_content"

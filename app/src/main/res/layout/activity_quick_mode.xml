@@ -7,11 +7,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.epicodus.saladbowlcompanion.ui.QuickModeActivity">
+    tools:context="com.epicodus.saladbowlcompanion.ui.QuickModeActivity"
+    android:background="@color/material_grey_850">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="A"
         android:id="@+id/AButton"
         android:layout_alignParentTop="true"
@@ -19,11 +20,13 @@
         android:layout_alignParentStart="true"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:padding="20dp" />
+        android:padding="20dp"
+        android:layout_marginTop="35dp"
+        android:backgroundTint="#8bc34a" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="B"
         android:id="@+id/BButton"
         android:textSize="30sp"
@@ -31,11 +34,12 @@
         android:padding="20dp"
         android:layout_alignTop="@+id/AButton"
         android:layout_toRightOf="@+id/AButton"
-        android:layout_toEndOf="@+id/AButton" />
+        android:layout_toEndOf="@+id/AButton"
+        android:backgroundTint="#96c95c" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="C"
         android:id="@+id/CButton"
         android:textSize="30sp"
@@ -43,11 +47,12 @@
         android:padding="20dp"
         android:layout_alignTop="@+id/BButton"
         android:layout_toRightOf="@+id/BButton"
-        android:layout_toEndOf="@+id/BButton" />
+        android:layout_toEndOf="@+id/BButton"
+        android:backgroundTint="#add580" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="D"
         android:id="@+id/DButton"
         android:textSize="30sp"
@@ -55,11 +60,12 @@
         android:padding="20dp"
         android:layout_alignTop="@+id/CButton"
         android:layout_toRightOf="@+id/CButton"
-        android:layout_toEndOf="@+id/CButton" />
+        android:layout_toEndOf="@+id/CButton"
+        android:backgroundTint="#c5e1a4" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="E"
         android:id="@+id/EButton"
         android:textSize="30sp"
@@ -67,11 +73,12 @@
         android:padding="20dp"
         android:layout_below="@+id/AButton"
         android:layout_toLeftOf="@+id/BButton"
-        android:layout_toStartOf="@+id/BButton" />
+        android:layout_toStartOf="@+id/BButton"
+        android:backgroundTint="#96c95c" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="F"
         android:id="@+id/FButton"
         android:textSize="30sp"
@@ -79,11 +86,12 @@
         android:padding="20dp"
         android:layout_below="@+id/AButton"
         android:layout_toLeftOf="@+id/CButton"
-        android:layout_toStartOf="@+id/CButton" />
+        android:layout_toStartOf="@+id/CButton"
+        android:backgroundTint="#add580" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="G"
         android:id="@+id/GButton"
         android:textSize="30sp"
@@ -91,11 +99,12 @@
         android:padding="20dp"
         android:layout_below="@+id/BButton"
         android:layout_toLeftOf="@+id/DButton"
-        android:layout_toStartOf="@+id/DButton" />
+        android:layout_toStartOf="@+id/DButton"
+        android:backgroundTint="#c5e1a4" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="H"
         android:id="@+id/HButton"
         android:textSize="30sp"
@@ -103,11 +112,12 @@
         android:padding="20dp"
         android:layout_below="@+id/CButton"
         android:layout_alignRight="@+id/DButton"
-        android:layout_alignEnd="@+id/DButton" />
+        android:layout_alignEnd="@+id/DButton"
+        android:backgroundTint="#d0e7b6" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="I"
         android:id="@+id/IButton"
         android:textSize="30sp"
@@ -115,11 +125,12 @@
         android:padding="20dp"
         android:layout_below="@+id/EButton"
         android:layout_toLeftOf="@+id/FButton"
-        android:layout_toStartOf="@+id/FButton" />
+        android:layout_toStartOf="@+id/FButton"
+        android:backgroundTint="#add580" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="L"
         android:id="@+id/LButton"
         android:textSize="30sp"
@@ -127,11 +138,12 @@
         android:padding="20dp"
         android:layout_alignTop="@+id/IButton"
         android:layout_toRightOf="@+id/IButton"
-        android:layout_toEndOf="@+id/IButton" />
+        android:layout_toEndOf="@+id/IButton"
+        android:backgroundTint="#c5e1a4" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="M"
         android:id="@+id/MButton"
         android:textSize="30sp"
@@ -139,11 +151,12 @@
         android:padding="20dp"
         android:layout_alignTop="@+id/LButton"
         android:layout_toRightOf="@+id/LButton"
-        android:layout_toEndOf="@+id/LButton" />
+        android:layout_toEndOf="@+id/LButton"
+        android:backgroundTint="#d0e7b6" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="N"
         android:id="@+id/NButton"
         android:textSize="30sp"
@@ -151,11 +164,12 @@
         android:padding="20dp"
         android:layout_alignTop="@+id/MButton"
         android:layout_alignRight="@+id/HButton"
-        android:layout_alignEnd="@+id/HButton" />
+        android:layout_alignEnd="@+id/HButton"
+        android:backgroundTint="#e7f3da" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="O"
         android:id="@+id/OButton"
         android:textSize="30sp"
@@ -163,11 +177,12 @@
         android:padding="20dp"
         android:layout_below="@+id/IButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:backgroundTint="#c5e1a4" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="P"
         android:id="@+id/PButton"
         android:textSize="30sp"
@@ -175,11 +190,12 @@
         android:padding="20dp"
         android:layout_below="@+id/IButton"
         android:layout_toRightOf="@+id/IButton"
-        android:layout_toEndOf="@+id/IButton" />
+        android:layout_toEndOf="@+id/IButton"
+        android:backgroundTint="#d0e7b6" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="R"
         android:id="@+id/RButton"
         android:textSize="30sp"
@@ -187,11 +203,12 @@
         android:padding="20dp"
         android:layout_below="@+id/LButton"
         android:layout_toRightOf="@+id/PButton"
-        android:layout_toEndOf="@+id/PButton" />
+        android:layout_toEndOf="@+id/PButton"
+        android:backgroundTint="#e7f3da" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="S"
         android:id="@+id/SButton"
         android:textSize="30sp"
@@ -199,11 +216,12 @@
         android:padding="20dp"
         android:layout_below="@+id/MButton"
         android:layout_toRightOf="@+id/MButton"
-        android:layout_toEndOf="@+id/MButton" />
+        android:layout_toEndOf="@+id/MButton"
+        android:backgroundTint="#f3f9ec" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="T"
         android:id="@+id/TButton"
         android:textSize="30sp"
@@ -211,11 +229,12 @@
         android:padding="20dp"
         android:layout_below="@+id/OButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:backgroundTint="#d0e7b6" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="U"
         android:id="@+id/UButton"
         android:textSize="30sp"
@@ -223,11 +242,12 @@
         android:padding="20dp"
         android:layout_alignTop="@+id/TButton"
         android:layout_toRightOf="@+id/TButton"
-        android:layout_toEndOf="@+id/TButton" />
+        android:layout_toEndOf="@+id/TButton"
+        android:backgroundTint="#e7f3da" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="V"
         android:id="@+id/VButton"
         android:textSize="30sp"
@@ -235,11 +255,12 @@
         android:padding="20dp"
         android:layout_below="@+id/PButton"
         android:layout_toRightOf="@+id/PButton"
-        android:layout_toEndOf="@+id/PButton" />
+        android:layout_toEndOf="@+id/PButton"
+        android:backgroundTint="#f3f9ec" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:text="W"
         android:id="@+id/WButton"
         android:textSize="30sp"
@@ -247,6 +268,7 @@
         android:padding="20dp"
         android:layout_alignTop="@+id/VButton"
         android:layout_alignRight="@+id/SButton"
-        android:layout_alignEnd="@+id/SButton" />
+        android:layout_alignEnd="@+id/SButton"
+        android:backgroundTint="#f3f9ec" />
 
 </RelativeLayout>

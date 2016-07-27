@@ -16,59 +16,74 @@
         android:text="About The Developers"
         android:id="@+id/aboutTitleTextView"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Adam Craig"
+        android:drawableLeft="@android:drawable/ic_delete"
+        android:drawablePadding="7dp"
         android:id="@+id/adamTextView"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:clickable="false"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Ashley Maceli"
+        android:drawableLeft="@drawable/ic_directions_walk_black_24dp"
+        android:drawablePadding="7dp"
         android:id="@+id/ashleyTextView"
         android:layout_below="@+id/adamTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="27dp"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Luca Quatela"
+        android:drawableLeft="@drawable/ic_directions_walk_black_24dp"
+        android:drawablePadding="7dp"
         android:id="@+id/lucaTextView"
         android:layout_below="@+id/ashleyTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="34dp"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Nadiya Yeroshkina"
+        android:drawableLeft="@drawable/ic_directions_walk_black_24dp"
+        android:drawablePadding="7dp"
         android:id="@+id/nadiyaTextView"
         android:layout_below="@+id/lucaTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Click on name to view see GitHub profiles!"
-        android:id="@+id/textView3"
+        android:text="Click on a name to view their GitHub profile!"
+        android:id="@+id/subTextView"
         android:layout_below="@+id/aboutTitleTextView"
         android:layout_centerHorizontal="true"
-        android:textSize="20dp" />
+        android:textSize="25dp"
+        android:textAlignment="center" />
 </RelativeLayout>

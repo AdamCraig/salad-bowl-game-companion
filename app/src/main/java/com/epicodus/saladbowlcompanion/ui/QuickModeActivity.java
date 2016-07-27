@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 public class QuickModeActivity extends AppCompatActivity implements View.OnClickListener {
 
     ArrayList<String> masterWordList = new ArrayList<>();
-    int numberOfTeams = 2;
+    int numberOfTeams;
 
     String[] teamNames = {"Team 1", "Team 2", "Team 3", "Team 4", "Team 5", "Team 6"};
     String [] teamColors = {"#red", "#blue", "#green", "#yellow", "#purple", "#orange"};
@@ -92,13 +92,11 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         Button pressedButton = (Button) view;
-        int finalNumberOfTeams = numberOfTeams;
         String letter = pressedButton.getText().toString().toLowerCase();
         ArrayList<String> letterWordList = filterByLetter(masterWordList, letter);
 
         Intent intent = new Intent(QuickModeActivity.this, GameActivity.class);
-        intent.putExtra("gameWordList", calculateCurrentGameWordArray(finalNumberOfTeams, letterWordList));
-        intent.putExtra("numberOfTeams", finalNumberOfTeams);
+        intent.putExtra("gameWordList", calculateCurrentGameWordArray(numberOfTeams, letterWordList));
         intent.putExtra("teamArray", Parcels.wrap(teamArray));
         intent.putExtra("currentTeam", 0);
         intent.putExtra("currentRoundNumber", 1);

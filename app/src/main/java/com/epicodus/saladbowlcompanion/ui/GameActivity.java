@@ -23,11 +23,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     public Random randomNumberGenerator = new Random();
     public ArrayList<String> masterWordList = new ArrayList<String>();
-    public int numberOfTeams;
     public ArrayList<Team> teamArray = new ArrayList<>();
     public int randomNumber = 0;
     public int currentRoundNumber;
     public int currentTeam;
+    public long timeLeft;
 
     @Bind(R.id.timerTextView) TextView mTimerTextView;
     @Bind(R.id.teamNameTextView) TextView mTeamNameTextView;
@@ -45,7 +45,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         mGuessButton.setOnClickListener(this);
         mPassButton.setOnClickListener(this);
         masterWordList = getIntent().getStringArrayListExtra("gameWordList");
-        numberOfTeams = getIntent().getIntExtra("numberOfTeams", 2);
         currentTeam = getIntent().getIntExtra("currentTeam", 0);
         currentRoundNumber = getIntent().getIntExtra("currentRoundNumber", 1);
         teamArray = Parcels.unwrap(getIntent().getParcelableExtra("teamArray"));
@@ -61,6 +60,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         public void onTick(long millisUntilFinished) {
             mTimerTextView.setText("seconds remaining " + millisUntilFinished / 1000);
+            timeLeft = millisUntilFinished;
         }
 
         public void onFinish() {
@@ -78,6 +78,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             masterWordList.remove(randomNumber);
             teamArray.get(currentTeam).incrementScore(currentRoundNumber);
             Log.v("team score", teamArray.get(currentTeam).getRound1Score() + "");
+
+            if (masterWordList.isEmpty()) {
+                // Transition to new round, pass turn to next team
+                // Pass timeLeft to next activity to save it and perhaps add it to that team's next turn?
+            }
         }
 
         randomNumber = randomNumberGenerator.nextInt(masterWordList.size());

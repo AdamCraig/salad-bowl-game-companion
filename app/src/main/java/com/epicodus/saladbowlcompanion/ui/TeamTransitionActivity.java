@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.epicodus.saladbowlcompanion.R;
 
-public class TeamTransitionsActivity extends AppCompatActivity {
+public class TeamTransitionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

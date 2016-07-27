@@ -9,19 +9,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.util.Log;
 import com.epicodus.saladbowlcompanion.R;
-import com.epicodus.saladbowlcompanion.services.WordService;
 
-import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -63,7 +55,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         public void onFinish() {
             mTimerTextView.setText("done!");
-            Intent intent = new Intent (GameActivity.this, TeamTransitionsActivity.class);
+            Intent intent = new Intent (GameActivity.this, TeamTransitionActivity.class);
             startActivity(intent);
         }
     };

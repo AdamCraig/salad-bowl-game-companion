@@ -23,7 +23,7 @@
         <activity android:name=".ui.GameActivity" />
         <activity android:name=".ui.QuickModeActivity" />
         <activity android:name=".ui.CreativeModeActivity" />
-        <activity android:name=".ui.TeamTransitionsActivity"></activity>
+        <activity android:name=".ui.TeamTransitionActivity"></activity>
     </application>
 
 </manifest>

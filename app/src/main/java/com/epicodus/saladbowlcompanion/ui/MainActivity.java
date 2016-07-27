@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (view == mAboutTextView) {
-            Intent intent = new Intent (MainActivity.this, GameActivity.class);
+            Intent intent = new Intent (MainActivity.this, AboutActivity.class);
             startActivity(intent);
         }
 

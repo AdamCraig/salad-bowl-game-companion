@@ -12,13 +12,63 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/abc_btn_radio_to_on_mtrl_015"
-        android:text="Adam"
-        android:id="@+id/adamTextView"
-        android:layout_marginTop="102dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="About The Developers"
+        android:id="@+id/aboutTitleTextView"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="136dp"
-        android:layout_marginStart="136dp" />
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Adam Craig"
+        android:id="@+id/adamTextView"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:clickable="false"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Ashley Maceli"
+        android:id="@+id/ashleyTextView"
+        android:layout_below="@+id/adamTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Luca Quatela"
+        android:id="@+id/lucaTextView"
+        android:layout_below="@+id/ashleyTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Nadiya Yeroshkina"
+        android:id="@+id/nadiyaTextView"
+        android:layout_below="@+id/lucaTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Click on name to view see GitHub profiles!"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/aboutTitleTextView"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp" />
 </RelativeLayout>

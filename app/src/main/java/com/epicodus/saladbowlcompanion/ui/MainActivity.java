@@ -1,14 +1,22 @@
 package com.epicodus.saladbowlcompanion.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.epicodus.saladbowlcompanion.R;
+import com.epicodus.saladbowlcompanion.util.ShakeDetector;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -18,6 +26,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.rulesButton) Button mRulesButton;
     @Bind(R.id.aboutTextView) TextView mAboutTextView;
 
+    private ShakeDetector mShakeDetector;
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +38,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mPlayButton.setOnClickListener(this);
         mRulesButton.setOnClickListener(this);
         mAboutTextView.setOnClickListener(this);
+
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mShakeDetector = new ShakeDetector(new ShakeDetector.OnShakeListener() {
+            @Override //http://stackoverflow.com/questions/2317428/android-i-want-to-shake-it
+            public void onShake() {
+                Log.d("SHAKE", "SHAAAAAAAAKE");
+                Toast toast = Toast.makeText(getApplicationContext(), "Device has shaken.", Toast.LENGTH_LONG);
+                toast.show();
+            }
+        });
     }
 
     @Override
@@ -44,6 +67,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent (MainActivity.this, AboutActivity.class);
             startActivity(intent);
         }
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
+    }
+
+    @Override
+    protected void onPause() {
+        mSensorManager.unregisterListener(mShakeDetector);
+        super.onPause();
     }
 }

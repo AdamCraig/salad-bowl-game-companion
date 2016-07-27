@@ -1,6 +1,8 @@
 package com.epicodus.saladbowlcompanion.ui;
 
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.support.annotation.BinderThread;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,12 +19,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.playButton) Button mPlayButton;
     @Bind(R.id.rulesButton) Button mRulesButton;
     @Bind(R.id.aboutTextView) TextView mAboutTextView;
+    @Bind(R.id. logoTextView) TextView mLogoTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/KaushanScript-Regular.otf");
+        mLogoTextView.setTypeface(font);
 
         mPlayButton.setOnClickListener(this);
         mRulesButton.setOnClickListener(this);

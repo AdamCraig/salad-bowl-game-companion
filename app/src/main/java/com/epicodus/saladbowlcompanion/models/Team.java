@@ -3,18 +3,24 @@ package com.epicodus.saladbowlcompanion.models;
 
 import android.util.Log;
 
+import org.parceler.Parcel;
+
+@Parcel
 
 public class Team {
-    private String name;
-    private String color;
-    private int round1Score;
-    private int round2Score;
-    private int round3Score;
-    private int finalScore;
+    String name;
+    String color;
+    int round1Score;
+    int round2Score;
+    int round3Score;
+    int finalScore;
 
     public Team (String name, String color) {
         this.name = name;
         this.color = color;
+    }
+
+    public Team(){
     }
 
     public String getName() {

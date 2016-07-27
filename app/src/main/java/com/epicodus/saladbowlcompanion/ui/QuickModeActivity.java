@@ -11,6 +11,8 @@ import android.widget.Button;
 import com.epicodus.saladbowlcompanion.R;
 import com.epicodus.saladbowlcompanion.models.Team;
 
+import org.parceler.Parcels;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -97,7 +99,7 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
         Intent intent = new Intent(QuickModeActivity.this, GameActivity.class);
         intent.putExtra("gameWordList", calculateCurrentGameWordArray(finalNumberOfTeams, letterWordList));
         intent.putExtra("numberOfTeams", finalNumberOfTeams);
-        intent.putExtra("teams", teamArray);
+        intent.putExtra("teamArray", Parcels.wrap(teamArray));
         startActivity(intent);
     }
 

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.util.Log;
 import com.epicodus.saladbowlcompanion.R;
+import com.epicodus.saladbowlcompanion.models.Team;
 
 import org.parceler.Parcels;
 
@@ -43,6 +44,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         mPassButton.setOnClickListener(this);
         masterWordList = getIntent().getStringArrayListExtra("gameWordList");
         numberOfTeams = getIntent().getIntExtra("numberOfTeams", 2);
+        ArrayList<Team> teamArray = Parcels.unwrap(getIntent().getParcelableExtra("teamArray"));
+        Log.v("TeamArrayColor", teamArray.get(2).getColor());
+        Log.v("TeamArrayName", teamArray.get(2).getName());
+
         countDownTimer.start();
         mWordTextView.setText(masterWordList.get(randomNumber));
     }

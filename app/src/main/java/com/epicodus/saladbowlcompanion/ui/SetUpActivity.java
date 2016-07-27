@@ -34,7 +34,7 @@ public class SetUpActivity extends AppCompatActivity implements View.OnClickList
 
     //TODO: SET BUTTERKNIFE BINDS FOR GAME WORDS
 
-    int team;
+    int numberOfTeamsInt = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,22 +53,19 @@ public class SetUpActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-        if (mTeamEditText.getText().toString().equals("")) {
-            mTeamEditText.setError("Enter number of teams");
+        String numberOfTeamsString = mTeamEditText.getText().toString();
+        numberOfTeamsInt = Integer.parseInt(numberOfTeamsString);
+
+        if (numberOfTeamsString.equals("") || Integer.parseInt(numberOfTeamsString) >= 6 || Integer.parseInt(numberOfTeamsString) < 2) {
+            mTeamEditText.setError("Please enter a valid number of teams.");
         } else if (view == mQuickModeButton) {
-            team = Integer.parseInt(mTeamEditText.getText().toString());  // might refactor here
-
             Intent intent = new Intent(SetUpActivity.this, QuickModeActivity.class);
-            intent.putExtra("teams", team);
+            intent.putExtra("numberOfTeams", numberOfTeamsInt);
             intent.putExtra("masterWordList", mMasterWordList);
-
             startActivity(intent);
         } else if (view == mCreativeModeButton) {
-            team = Integer.parseInt(mTeamEditText.getText().toString());
-
             Intent intent = new Intent(SetUpActivity.this, CreativeModeActivity.class);
-            intent.putExtra("teams", team);
-
+            intent.putExtra("numberOfTeams", numberOfTeamsInt);
             startActivity(intent);
         }
     }

@@ -10,6 +10,8 @@ import android.widget.TextView;
 import android.util.Log;
 import com.epicodus.saladbowlcompanion.R;
 
+import org.parceler.Parcels;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -41,12 +43,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         mGuessButton.setOnClickListener(this);
         mPassButton.setOnClickListener(this);
         Intent intent = getIntent();
-        masterWordList = intent.getStringArrayListExtra("gameWordList");
-
-        Log.v("new word array", calculateCurrentGameWordArray(numberOfTeams, masterWordList) + "");
+        masterWordList = getIntent().getStringArrayListExtra("gameWordList");
+        numberOfTeams = getIntent().getIntExtra("numberOfTeams", 2);
 
         countDownTimer.start();
-
     }
 
 
@@ -79,12 +79,5 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         mWordTextView.setText(masterWordList.get(wordCounter));
     }
 
-    public List<String> calculateCurrentGameWordArray(int numberOfTeams, ArrayList<String> masterWordList) {
-        ArrayList<String> calculatedWordArray = masterWordList;
-        Collections.shuffle(calculatedWordArray);
 
-        List calculatedWordList = calculatedWordArray.subList(0, (numberOfTeams * 10));
-
-        return calculatedWordList;
-    }
 }

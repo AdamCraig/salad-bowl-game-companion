@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
 
 import com.epicodus.saladbowlcompanion.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -17,6 +20,7 @@ import butterknife.ButterKnife;
 public class QuickModeActivity extends AppCompatActivity implements View.OnClickListener {
 
     ArrayList<String> masterWordList = new ArrayList<>();
+    int numberOfTeams = 2;
 
     @Bind(R.id.AButton) Button AButton;
     @Bind(R.id.BButton) Button BButton;
@@ -44,9 +48,9 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quick_mode);
         ButterKnife.bind(this);
-
         Intent intent = getIntent();
         masterWordList = intent.getStringArrayListExtra("masterWordList");
+        numberOfTeams = intent.getIntExtra("numberOfTeams", 2);
 
         AButton.setOnClickListener(this);
         BButton.setOnClickListener(this);
@@ -73,12 +77,13 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         Button pressedButton = (Button) view;
+        int finalNumberOfTeams = numberOfTeams;
         String letter = pressedButton.getText().toString().toLowerCase();
-
-//        Log.v("wordList size", filterByLetter(masterWordList, letter).size() + "");
+        ArrayList<String> letterWordList = filterByLetter(masterWordList, letter);
 
         Intent intent = new Intent(QuickModeActivity.this, GameActivity.class);
-        intent.putExtra("gameWordList", filterByLetter(masterWordList, letter));
+        intent.putExtra("gameWordList", calculateCurrentGameWordArray(finalNumberOfTeams, letterWordList));
+        intent.putExtra("numberOfTeams", finalNumberOfTeams);
         startActivity(intent);
     }
 
@@ -91,5 +96,20 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
             }
         }
         return filteredArray;
+    }
+
+    public ArrayList<String> calculateCurrentGameWordArray(int numberOfTeams, ArrayList<String> letterWordList) {
+        ArrayList<String> calculatedWordArray = letterWordList;
+        Collections.shuffle(calculatedWordArray);
+
+        List calculatedWordList = calculatedWordArray.subList(0, (numberOfTeams * 10));
+
+        ArrayList<String> calculatedWordArrayList = new ArrayList<>();
+
+        for(int i = 0; i < calculatedWordList.size(); i++) {
+            calculatedWordArrayList.add(calculatedWordList.get(i).toString());
+        }
+
+        return calculatedWordArrayList;
     }
 }

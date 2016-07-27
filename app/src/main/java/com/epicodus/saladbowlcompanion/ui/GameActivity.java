@@ -15,12 +15,14 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
+    public Random randomNumberGenerator = new Random();
     public ArrayList<String> masterWordList = new ArrayList<String>();
     public int numberOfTeams = 2;
 
@@ -32,9 +34,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.correctButton) Button mGuessButton;
     @Bind(R.id.passButton) Button mPassButton;
 
-
-    int wordCounter = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +44,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = getIntent();
         masterWordList = getIntent().getStringArrayListExtra("gameWordList");
         numberOfTeams = getIntent().getIntExtra("numberOfTeams", 2);
-
         countDownTimer.start();
+        mWordTextView.setText(masterWordList.get(0));
     }
 
 
@@ -75,8 +74,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         if (view == mPassButton) {
             // do nothing
         }
-        wordCounter ++;
-        mWordTextView.setText(masterWordList.get(wordCounter));
+        int randomNumber = randomNumberGenerator.nextInt(masterWordList.size());
+        mWordTextView.setText(masterWordList.get(randomNumber));
     }
 
 

@@ -25,6 +25,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public Random randomNumberGenerator = new Random();
     public ArrayList<String> masterWordList = new ArrayList<String>();
     public int numberOfTeams = 2;
+    public int randomNumber = 0;
 
     @Bind(R.id.timerTextView) TextView mTimerTextView;
     @Bind(R.id.teamNameTextView) TextView mTeamNameTextView;
@@ -45,7 +46,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         masterWordList = getIntent().getStringArrayListExtra("gameWordList");
         numberOfTeams = getIntent().getIntExtra("numberOfTeams", 2);
         countDownTimer.start();
-        mWordTextView.setText(masterWordList.get(0));
+        mWordTextView.setText(masterWordList.get(randomNumber));
     }
 
 
@@ -68,13 +69,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
 
         if (view == mGuessButton) {
-//            wordsFromApi.splice();
-
+            masterWordList.remove(randomNumber);
+            Log.v("masterWordList", masterWordList + "");
         }
         if (view == mPassButton) {
             // do nothing
         }
-        int randomNumber = randomNumberGenerator.nextInt(masterWordList.size());
+        randomNumber = randomNumberGenerator.nextInt(masterWordList.size());
         mWordTextView.setText(masterWordList.get(randomNumber));
     }
 

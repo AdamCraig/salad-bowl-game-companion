@@ -74,4 +74,12 @@
         android:layout_alignLeft="@+id/creativeModeButton"
         android:layout_alignStart="@+id/creativeModeButton"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(No less than 2, no more than 6) CHANGE TO BUTTONS"
+        android:id="@+id/teamLimitsTextView"
+        android:layout_below="@+id/teamEditText"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

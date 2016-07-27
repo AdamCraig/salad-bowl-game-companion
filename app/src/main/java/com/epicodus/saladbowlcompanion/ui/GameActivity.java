@@ -13,8 +13,6 @@ import com.epicodus.saladbowlcompanion.R;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
 import butterknife.Bind;
@@ -26,6 +24,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public ArrayList<String> masterWordList = new ArrayList<String>();
     public int numberOfTeams = 2;
     public int randomNumber = 0;
+    public int roundNumber;
 
     @Bind(R.id.timerTextView) TextView mTimerTextView;
     @Bind(R.id.teamNameTextView) TextView mTeamNameTextView;
@@ -42,7 +41,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
         mGuessButton.setOnClickListener(this);
         mPassButton.setOnClickListener(this);
-        Intent intent = getIntent();
         masterWordList = getIntent().getStringArrayListExtra("gameWordList");
         numberOfTeams = getIntent().getIntExtra("numberOfTeams", 2);
         countDownTimer.start();
@@ -54,11 +52,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         // https://developer.android.com/reference/android/os/CountDownTimer.html
 
         public void onTick(long millisUntilFinished) {
-            mTimerTextView.setText("seconds remaining" + millisUntilFinished / 1000);
+            mTimerTextView.setText("seconds remaining " + millisUntilFinished / 1000);
         }
 
         public void onFinish() {
-            mTimerTextView.setText("done!");
+            mTimerTextView.setText("Done!");
             Intent intent = new Intent (GameActivity.this, TeamTransitionActivity.class);
             startActivity(intent);
         }
@@ -72,9 +70,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             masterWordList.remove(randomNumber);
             Log.v("masterWordList", masterWordList + "");
         }
-        if (view == mPassButton) {
-            // do nothing
-        }
+
         randomNumber = randomNumberGenerator.nextInt(masterWordList.size());
         mWordTextView.setText(masterWordList.get(randomNumber));
     }

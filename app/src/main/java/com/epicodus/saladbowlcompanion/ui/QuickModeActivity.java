@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.epicodus.saladbowlcompanion.R;
+import com.epicodus.saladbowlcompanion.models.Team;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -21,6 +23,10 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
 
     ArrayList<String> masterWordList = new ArrayList<>();
     int numberOfTeams = 2;
+
+    String[] teamNames = {"Team 1", "Team 2", "Team 3", "Team 4", "Team 5", "Team 6"};
+    String [] teamColors = {"#red", "#blue", "#green", "#yellow", "#purple", "#orange"};
+    ArrayList<Team> teamArray = new ArrayList<Team>();
 
     @Bind(R.id.AButton) Button AButton;
     @Bind(R.id.BButton) Button BButton;
@@ -51,6 +57,13 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
         Intent intent = getIntent();
         masterWordList = intent.getStringArrayListExtra("masterWordList");
         numberOfTeams = intent.getIntExtra("numberOfTeams", 2);
+
+        for (int i = 0; i < numberOfTeams; i++) { // <-----------------
+            Team newTeam = new Team(teamNames[i], teamColors[i]);
+            teamArray.add(newTeam);
+            Log.v("TeamsCreation", teamArray.get(i).getName() + "");
+            Log.v("TeamsCreation", teamArray.get(i).getColor() + "");
+        }
 
         AButton.setOnClickListener(this);
         BButton.setOnClickListener(this);
@@ -84,6 +97,7 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
         Intent intent = new Intent(QuickModeActivity.this, GameActivity.class);
         intent.putExtra("gameWordList", calculateCurrentGameWordArray(finalNumberOfTeams, letterWordList));
         intent.putExtra("numberOfTeams", finalNumberOfTeams);
+        intent.putExtra("teams", teamArray);
         startActivity(intent);
     }
 

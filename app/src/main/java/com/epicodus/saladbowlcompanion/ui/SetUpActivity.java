@@ -56,7 +56,7 @@ public class SetUpActivity extends AppCompatActivity implements View.OnClickList
         String numberOfTeamsString = mTeamEditText.getText().toString();
         numberOfTeamsInt = Integer.parseInt(numberOfTeamsString);
 
-        if (numberOfTeamsString.equals("") || Integer.parseInt(numberOfTeamsString) >= 6 || Integer.parseInt(numberOfTeamsString) < 2) {
+        if (numberOfTeamsString.equals("") || Integer.parseInt(numberOfTeamsString) > 6 || Integer.parseInt(numberOfTeamsString) < 2) {
             mTeamEditText.setError("Please enter a valid number of teams.");
         } else if (view == mQuickModeButton) {
             Intent intent = new Intent(SetUpActivity.this, QuickModeActivity.class);

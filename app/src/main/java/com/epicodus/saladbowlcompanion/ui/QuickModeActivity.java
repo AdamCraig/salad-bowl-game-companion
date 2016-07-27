@@ -100,6 +100,8 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
         intent.putExtra("gameWordList", calculateCurrentGameWordArray(finalNumberOfTeams, letterWordList));
         intent.putExtra("numberOfTeams", finalNumberOfTeams);
         intent.putExtra("teamArray", Parcels.wrap(teamArray));
+        intent.putExtra("currentTeam", 0);
+        intent.putExtra("currentRoundNumber", 1);
         startActivity(intent);
     }
 

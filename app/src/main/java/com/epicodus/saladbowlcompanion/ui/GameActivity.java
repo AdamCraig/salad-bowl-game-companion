@@ -11,20 +11,23 @@ import android.util.Log;
 import com.epicodus.saladbowlcompanion.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public ArrayList<String> wordsFromApi = new ArrayList<String>();
+    public ArrayList<String> masterWordList = new ArrayList<String>();
+    public int numberOfTeams = 2;
 
     @Bind(R.id.timerTextView) TextView mTimerTextView;
     @Bind(R.id.teamNameTextView) TextView mTeamNameTextView;
     @Bind(R.id.roundTextView) TextView mRoundTextView;
     @Bind(R.id.roundRulesTextView) TextView mRoundRulesTextView;
     @Bind(R.id.wordTextView) TextView mWordTextView;
-    @Bind(R.id.guessButton) Button mGuessButton;
+    @Bind(R.id.correctButton) Button mGuessButton;
     @Bind(R.id.passButton) Button mPassButton;
 
 
@@ -38,9 +41,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         mGuessButton.setOnClickListener(this);
         mPassButton.setOnClickListener(this);
         Intent intent = getIntent();
-        ArrayList<String> wordList = intent.getStringArrayListExtra("gameWordList");
+        masterWordList = intent.getStringArrayListExtra("gameWordList");
 
-        Log.v("wordList", wordList + "");
+        Log.v("new word array", calculateCurrentGameWordArray(numberOfTeams, masterWordList) + "");
+
         countDownTimer.start();
 
     }
@@ -64,8 +68,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
-
-
         if (view == mGuessButton) {
 //            wordsFromApi.splice();
 
@@ -74,6 +76,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             // do nothing
         }
         wordCounter ++;
-        mWordTextView.setText(wordsFromApi.get(wordCounter));
+        mWordTextView.setText(masterWordList.get(wordCounter));
+    }
+
+    public List<String> calculateCurrentGameWordArray(int numberOfTeams, ArrayList<String> masterWordList) {
+        ArrayList<String> calculatedWordArray = masterWordList;
+        Collections.shuffle(calculatedWordArray);
+
+        List calculatedWordList = calculatedWordArray.subList(0, (numberOfTeams * 10));
+
+        return calculatedWordList;
     }
 }

@@ -75,6 +75,8 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
         Button pressedButton = (Button) view;
         String letter = pressedButton.getText().toString().toLowerCase();
 
+//        Log.v("wordList size", filterByLetter(masterWordList, letter).size() + "");
+
         Intent intent = new Intent(QuickModeActivity.this, GameActivity.class);
         intent.putExtra("gameWordList", filterByLetter(masterWordList, letter));
         startActivity(intent);

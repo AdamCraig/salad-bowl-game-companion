@@ -22,18 +22,16 @@
         android:layout_height="wrap_content"
         android:text="TEAM NAME"
         android:id="@+id/teamNameTextView"
-        android:layout_below="@+id/timerTextView"
+        android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/roundRulesTextView"
-        android:layout_alignEnd="@+id/roundRulesTextView"
-        android:layout_marginTop="31dp" />
+        android:layout_alignEnd="@+id/roundRulesTextView" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Round:"
         android:id="@+id/roundTextView"
-        android:layout_marginTop="44dp"
-        android:layout_below="@+id/teamNameTextView"
+        android:layout_below="@+id/timerTextView"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -42,8 +40,7 @@
         android:text="Round Rules"
         android:id="@+id/roundRulesTextView"
         android:layout_below="@+id/roundTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -52,25 +49,30 @@
         android:id="@+id/wordTextView"
         android:layout_below="@+id/roundRulesTextView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp" />
+        android:layout_marginTop="34dp"
+        android:textSize="40dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Guessed"
-        android:id="@+id/guessButton"
+        android:text="Correct!"
+        android:id="@+id/correctButton"
+        android:layout_marginBottom="63dp"
+        android:textSize="24sp"
+        android:padding="15dp"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/roundRulesTextView"
-        android:layout_toStartOf="@+id/roundRulesTextView"
-        android:layout_marginBottom="62dp" />
+        android:layout_toLeftOf="@+id/roundTextView"
+        android:layout_toStartOf="@+id/roundTextView" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pass"
         android:id="@+id/passButton"
-        android:layout_alignBottom="@+id/guessButton"
-        android:layout_toRightOf="@+id/roundTextView"
-        android:layout_toEndOf="@+id/roundTextView" />
+        android:textSize="24sp"
+        android:padding="15dp"
+        android:layout_alignTop="@+id/correctButton"
+        android:layout_toRightOf="@+id/roundRulesTextView"
+        android:layout_toEndOf="@+id/roundRulesTextView" />
 
 </RelativeLayout>

@@ -6,6 +6,8 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.graphics.Typeface;
+import android.support.annotation.BinderThread;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.playButton) Button mPlayButton;
     @Bind(R.id.rulesButton) Button mRulesButton;
     @Bind(R.id.aboutTextView) TextView mAboutTextView;
+    @Bind(R.id. logoTextView) TextView mLogoTextView;
 
     private ShakeDetector mShakeDetector;
     private SensorManager mSensorManager;
@@ -35,6 +38,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/KaushanScript-Regular.otf");
+        mLogoTextView.setTypeface(font);
+
         mPlayButton.setOnClickListener(this);
         mRulesButton.setOnClickListener(this);
         mAboutTextView.setOnClickListener(this);

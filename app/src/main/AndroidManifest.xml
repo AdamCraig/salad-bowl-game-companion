@@ -9,11 +9,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_bowl"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.MainActivity"
+                  android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,7 +27,7 @@
         <activity android:name=".ui.GameActivity" />
         <activity android:name=".ui.QuickModeActivity" />
         <activity android:name=".ui.CreativeModeActivity" />
-        <activity android:name=".ui.TeamTransitionsActivity"></activity>
+        <activity android:name=".ui.TeamTransitionActivity"></activity>
     </application>
 
 </manifest>

@@ -9,30 +9,27 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.util.Log;
 import com.epicodus.saladbowlcompanion.R;
-import com.epicodus.saladbowlcompanion.services.WordService;
 
-import java.io.IOException;
-import java.lang.reflect.Array;
+import org.parceler.Parcels;
+
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public ArrayList<String> wordsFromApi = new ArrayList<String>();
+    public ArrayList<String> masterWordList = new ArrayList<String>();
+    public int numberOfTeams = 2;
 
     @Bind(R.id.timerTextView) TextView mTimerTextView;
     @Bind(R.id.teamNameTextView) TextView mTeamNameTextView;
     @Bind(R.id.roundTextView) TextView mRoundTextView;
     @Bind(R.id.roundRulesTextView) TextView mRoundRulesTextView;
     @Bind(R.id.wordTextView) TextView mWordTextView;
-    @Bind(R.id.guessButton) Button mGuessButton;
+    @Bind(R.id.correctButton) Button mGuessButton;
     @Bind(R.id.passButton) Button mPassButton;
 
 
@@ -46,11 +43,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         mGuessButton.setOnClickListener(this);
         mPassButton.setOnClickListener(this);
         Intent intent = getIntent();
-        ArrayList<String> wordList = intent.getStringArrayListExtra("gameWordList");
+        masterWordList = getIntent().getStringArrayListExtra("gameWordList");
+        numberOfTeams = getIntent().getIntExtra("numberOfTeams", 2);
 
-        Log.v("wordList", wordList + "");
         countDownTimer.start();
-
     }
 
 
@@ -63,7 +59,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         public void onFinish() {
             mTimerTextView.setText("done!");
-            Intent intent = new Intent (GameActivity.this, TeamTransitionsActivity.class);
+            Intent intent = new Intent (GameActivity.this, TeamTransitionActivity.class);
             startActivity(intent);
         }
     };
@@ -71,8 +67,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-
-
 
         if (view == mGuessButton) {
 //            wordsFromApi.splice();
@@ -82,6 +76,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             // do nothing
         }
         wordCounter ++;
-        mWordTextView.setText(wordsFromApi.get(wordCounter));
+        mWordTextView.setText(masterWordList.get(wordCounter));
     }
+
+
 }

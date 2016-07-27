@@ -16,7 +16,9 @@
         android:text="About The Developers"
         android:id="@+id/aboutTitleTextView"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,10 +26,13 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Adam Craig"
         android:id="@+id/adamTextView"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
         android:clickable="false"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="31dp"
+        android:textColor="#FFE98839" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,10 +40,12 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Ashley Maceli"
         android:id="@+id/ashleyTextView"
+        android:textSize="25dp"
         android:layout_below="@+id/adamTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
-        android:textSize="25dp" />
+        android:layout_alignLeft="@+id/aboutTitleTextView"
+        android:layout_alignStart="@+id/aboutTitleTextView"
+        android:layout_marginTop="26dp"
+        android:textColor="#FF8B5FC9" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,10 +53,11 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Luca Quatela"
         android:id="@+id/lucaTextView"
+        android:textSize="25dp"
         android:layout_below="@+id/ashleyTextView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp"
-        android:textSize="25dp" />
+        android:layout_marginTop="31dp"
+        android:textColor="#FF67A16F" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -57,18 +65,30 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Nadiya Yeroshkina"
         android:id="@+id/nadiyaTextView"
+        android:textSize="25dp"
         android:layout_below="@+id/lucaTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp"
-        android:textSize="25dp" />
+        android:layout_alignRight="@+id/imageView2"
+        android:layout_alignEnd="@+id/imageView2"
+        android:layout_marginTop="37dp"
+        android:textColor="#FFD44040" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Click on name to view see GitHub profiles!"
-        android:id="@+id/textView3"
+        android:text="Click on a name to view their GitHub profile!"
+        android:id="@+id/subTextView"
         android:layout_below="@+id/aboutTitleTextView"
         android:layout_centerHorizontal="true"
-        android:textSize="20dp" />
+        android:textSize="25dp"
+        android:textAlignment="center" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_marginTop="31dp"
+        android:src="@drawable/team_photo"
+        android:layout_below="@+id/subTextView"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

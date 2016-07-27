@@ -4,39 +4,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.epicodus.saladbowlcompanion.ui.MainActivity">
+    tools:context="com.epicodus.saladbowlcompanion.ui.MainActivity"
+    android:background="@color/material_grey_850">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Salad Bowl"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/logoTextView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="55dp"
+        android:textAlignment="center" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:text="PLAY"
         android:id="@+id/playButton"
-        android:layout_marginBottom="20dp"
-        android:layout_above="@+id/rulesButton"
-        android:layout_alignLeft="@+id/rulesButton"
-        android:layout_alignStart="@+id/rulesButton" />
+        android:layout_marginTop="20dp"
+        android:background="@drawable/circle_button"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/colorTextIcons" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:text="RULES"
         android:id="@+id/rulesButton"
-        android:layout_above="@+id/aboutTextView"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/aboutTextView"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="About" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/colorPrimaryText"
+        android:background="@drawable/paper_slip"
+        android:layout_marginBottom="20dp" />
 
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:id="@+id/aboutTextView"
+        android:text="About"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="30dp"
+        android:textColor="@color/colorPrimaryText"
+        android:background="@drawable/paper_slip"
+        android:layout_marginBottom="20dp" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="300dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/bowl"
+        android:layout_below="@+id/logoTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="38dp" />
 </RelativeLayout>

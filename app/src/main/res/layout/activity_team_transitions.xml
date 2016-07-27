@@ -57,5 +57,6 @@
         android:layout_below="@+id/titleTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:padding="15dp" />
 </RelativeLayout>

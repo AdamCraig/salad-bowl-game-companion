@@ -30,6 +30,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public int currentTeam;
     public long timeLeft;
     public boolean roundOver = false;
+    public boolean newRound = true;
     public int pointsThisTurn;
 
     @Bind(R.id.timerTextView) TextView mTimerTextView;
@@ -48,14 +49,23 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         mGuessButton.setOnClickListener(this);
         mPassButton.setOnClickListener(this);
         masterWordList = getIntent().getStringArrayListExtra("gameWordList");
-        currentWordList = (ArrayList<String>) masterWordList.clone();
+        newRound = getIntent().getBooleanExtra("newRound", true);
+
+        if (newRound) {
+            currentWordList = (ArrayList<String>) masterWordList.clone();
+        } else {
+            currentWordList = getIntent().getStringArrayListExtra("currentWordList");
+        }
+
         currentTeam = getIntent().getIntExtra("currentTeam", 0);
         currentRoundNumber = getIntent().getIntExtra("currentRoundNumber", 1);
         teamArray = Parcels.unwrap(getIntent().getParcelableExtra("teamArray"));
 
         countDownTimer.start();
         mRoundTextView.setText("Round " + currentRoundNumber + "");
-        mWordTextView.setText(currentWordList.get(randomNumber));
+
+        // TODO: Fix this crash
+//        mWordTextView.setText(currentWordList.get(randomNumber));
     }
 
 

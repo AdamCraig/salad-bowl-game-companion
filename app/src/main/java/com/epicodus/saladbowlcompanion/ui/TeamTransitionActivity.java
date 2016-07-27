@@ -1,7 +1,9 @@
 package com.epicodus.saladbowlcompanion.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -15,7 +17,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class TeamTransitionActivity extends AppCompatActivity {
+public class TeamTransitionActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Bind(R.id.scoreTitleTextView) TextView mScoreTitleTextView;
     @Bind(R.id.scoreTextView) TextView mScoreTextView;
@@ -29,6 +31,7 @@ public class TeamTransitionActivity extends AppCompatActivity {
     public int currentRoundNumber;
     public int currentTeam;
     public boolean roundOver = false;
+    public boolean newRound = false;
     public int pointsThisTurn;
     public long timeLeft;
 
@@ -43,6 +46,7 @@ public class TeamTransitionActivity extends AppCompatActivity {
         currentTeam = getIntent().getIntExtra("currentTeam", 0);
         currentRoundNumber = getIntent().getIntExtra("currentRoundNumber", 1);
         teamArray = Parcels.unwrap(getIntent().getParcelableExtra("teamArray"));
+        roundOver = getIntent().getBooleanExtra("roundOver", false);
         pointsThisTurn = getIntent().getIntExtra("pointsThisTurn", 0);
 
         mScoreTitleTextView.setText("Team " + teamArray.get(currentTeam).getName() + " got");
@@ -51,9 +55,30 @@ public class TeamTransitionActivity extends AppCompatActivity {
             mGetReadyTextView.setText("Team " + teamArray.get(0).getName() + ", get ready!");
             currentTeam = 0;
         } else {
-            mGetReadyTextView.setText("Team " + teamArray.get(currentTeam + 1).getName() + ", get ready!");
+            currentTeam++;
+            mGetReadyTextView.setText("Team " + teamArray.get(currentTeam).getName() + ", get ready!");
         }
-        mNextTurnButton.setText(teamArray.get(currentTeam + 1).getName() + " START!");
+        mNextTurnButton.setText("START " + teamArray.get(currentTeam).getName() + "'S TURN");
 
+        if (roundOver) {
+            newRound = true;
+            currentRoundNumber++;
+        }
+
+        mNextTurnButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mNextTurnButton) {
+            Intent intent = new Intent(TeamTransitionActivity.this, GameActivity.class);
+            intent.putExtra("masterWordList", masterWordList);
+            intent.putExtra("currentWordList", currentWordList);
+            intent.putExtra("currentTeam", currentTeam);
+            intent.putExtra("currentRoundNumber", currentRoundNumber);
+            intent.putExtra("teamArray", Parcels.wrap(teamArray));
+            intent.putExtra("newRound", newRound);
+            startActivity(intent);
+        }
     }
 }

@@ -30,6 +30,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public int currentTeam;
     public long timeLeft;
     public boolean roundOver = false;
+    public int pointsThisTurn;
 
     @Bind(R.id.timerTextView) TextView mTimerTextView;
     @Bind(R.id.teamNameTextView) TextView mTeamNameTextView;
@@ -73,8 +74,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("currentWordList", currentWordList);
             intent.putExtra("currentTeam", currentTeam);
             intent.putExtra("currentRoundNumber", currentRoundNumber);
-            intent.putExtra("teamArray", teamArray);
+            intent.putExtra("teamArray", Parcels.wrap(teamArray));
             intent.putExtra("roundOver", roundOver);
+            intent.putExtra("pointsThisTurn", pointsThisTurn);
             startActivity(intent);
         }
     };
@@ -89,7 +91,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             Log.v("current list", currentWordList.size() + "");
 
             teamArray.get(currentTeam).incrementScore(currentRoundNumber);
-
+            pointsThisTurn++;
 
             if (currentWordList.isEmpty()) {
                 roundOver = true;

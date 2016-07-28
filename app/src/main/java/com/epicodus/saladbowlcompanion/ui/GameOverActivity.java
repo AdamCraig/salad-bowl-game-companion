@@ -5,6 +5,11 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.epicodus.saladbowlcompanion.R;
+import com.epicodus.saladbowlcompanion.models.Team;
+
+import org.parceler.Parcels;
+
+import java.util.ArrayList;
 
 import butterknife.Bind;
 
@@ -35,10 +40,15 @@ public class GameOverActivity extends AppCompatActivity {
     @Bind(R.id.team6Round3) TextView mTeam6Round3;
     @Bind(R.id.team6FinalScore) TextView mTeam6FinalScore;
 
+    public ArrayList<Team> teamArray = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_over);
+
+        teamArray = Parcels.unwrap(getIntent().getParcelableExtra("teamArray"));
+
 
     }
 }

@@ -73,7 +73,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    CountDownTimer countDownTimer = new CountDownTimer(15000, 1000) {
+    CountDownTimer countDownTimer = new CountDownTimer(5000, 1000) {
         // https://developer.android.com/reference/android/os/CountDownTimer.html
 
         public void onTick(long millisUntilFinished) {

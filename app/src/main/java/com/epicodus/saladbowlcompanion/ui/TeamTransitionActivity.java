@@ -63,13 +63,22 @@ public class TeamTransitionActivity extends AppCompatActivity implements View.On
             currentTeam++;
             mGetReadyTextView.setText("Team " + teamArray.get(currentTeam).getName() + ", get ready!");
         }
+
         mNextTurnButton.setText("START " + teamArray.get(currentTeam).getName() + "'S TURN");
         mNextTurnButton.setBackgroundColor(Color.parseColor(teamArray.get(currentTeam).getColor()));
         mRoundNumberTextView.setText("Current Round: " + currentRoundNumber + "");
 
         if (newRound) {
             currentRoundNumber++;
-            mNewRoundStartTextView.setText("Round " + currentRoundNumber + " is about to start!");
+
+            if (currentRoundNumber > 3) {
+                mGetReadyTextView.setVisibility(View.INVISIBLE);
+                mNewRoundStartTextView.setText("GAME OVER!");
+                mNextTurnButton.setText("View Final Scores");
+            } else {
+                mNewRoundStartTextView.setText("Round " + currentRoundNumber + " is about to start!");
+            }
+
             mNewRoundStartTextView.setVisibility(View.VISIBLE);
         }
 
@@ -79,14 +88,21 @@ public class TeamTransitionActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View view) {
         if (view == mNextTurnButton) {
-            Intent intent = new Intent(TeamTransitionActivity.this, GameActivity.class);
-            intent.putExtra("masterWordList", masterWordList);
-            intent.putExtra("currentWordList", currentWordList);
-            intent.putExtra("currentTeam", currentTeam);
-            intent.putExtra("currentRoundNumber", currentRoundNumber);
-            intent.putExtra("teamArray", Parcels.wrap(teamArray));
-            intent.putExtra("newRound", newRound);
-            startActivity(intent);
+            // If all rounds have been played, go to Game Over Activity. Otherwise, go to the next Game Activity.
+            if (currentRoundNumber > 3) {
+                Intent intent = new Intent(TeamTransitionActivity.this, GameOverActivity.class);
+                intent.putExtra("teamArray", Parcels.wrap(teamArray));
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(TeamTransitionActivity.this, GameActivity.class);
+                intent.putExtra("masterWordList", masterWordList);
+                intent.putExtra("currentWordList", currentWordList);
+                intent.putExtra("currentTeam", currentTeam);
+                intent.putExtra("currentRoundNumber", currentRoundNumber);
+                intent.putExtra("teamArray", Parcels.wrap(teamArray));
+                intent.putExtra("newRound", newRound);
+                startActivity(intent);
+            }
         }
     }
 

@@ -97,7 +97,7 @@ public class TeamTransitionActivity extends AppCompatActivity implements View.On
         } else if (round == 3) {
             return "#009688";
         } else {
-            return "FFFFFF";
+            return "#FFFFFF";
         }
     }
 }

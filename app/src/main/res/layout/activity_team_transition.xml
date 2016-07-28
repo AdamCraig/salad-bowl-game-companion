@@ -59,7 +59,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp"
         android:textSize="24sp"
-        android:padding="15dp" />
+        android:padding="15dp"
+        android:background="@drawable/round_button" />
 
     <TextView
         android:layout_width="wrap_content"

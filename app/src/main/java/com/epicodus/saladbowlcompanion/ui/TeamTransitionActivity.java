@@ -64,6 +64,7 @@ public class TeamTransitionActivity extends AppCompatActivity implements View.On
             mGetReadyTextView.setText("Team " + teamArray.get(currentTeam).getName() + ", get ready!");
         }
         mNextTurnButton.setText("START " + teamArray.get(currentTeam).getName() + "'S TURN");
+        mNextTurnButton.setBackgroundColor(Color.parseColor(teamArray.get(currentTeam).getColor()));
         mRoundNumberTextView.setText("Current Round: " + currentRoundNumber + "");
 
         if (newRound) {

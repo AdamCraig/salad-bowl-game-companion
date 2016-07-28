@@ -24,12 +24,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TEAM NAME"
+        android:text="Team Name"
         android:id="@+id/teamNameTextView"
         android:textSize="30dp"
-        android:layout_alignParentTop="true"
+        android:textColor="@color/colorTextIcons"
+        android:layout_below="@+id/currentTeamTitleTextView"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/colorTextIcons" />
+        android:textAlignment="center"
+        android:singleLine="false" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -57,7 +59,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="WORD TO GUESS"
+        android:text="Word"
         android:id="@+id/wordTextView"
         android:textSize="40dp"
         android:layout_centerVertical="true"
@@ -74,7 +76,9 @@
         android:padding="15dp"
         android:layout_marginTop="46dp"
         android:layout_below="@+id/wordTextView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/colorPrimary" />
 
     <Button
         android:layout_width="wrap_content"
@@ -85,6 +89,18 @@
         android:padding="15dp"
         android:layout_marginTop="34dp"
         android:layout_below="@+id/correctButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/button_material_dark" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Current Team:"
+        android:id="@+id/currentTeamTitleTextView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorTextIcons" />
 
 </RelativeLayout>

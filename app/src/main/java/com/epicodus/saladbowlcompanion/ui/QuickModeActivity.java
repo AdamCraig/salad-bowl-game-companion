@@ -28,7 +28,7 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
     public boolean newRound = true;
 
 
-    String[] teamNames = {"Luca", "Adam", "Nadiya", "Ashley", "Dog", "Cat"};
+    String[] teamNames = {"Terrific Tomatoes", "Big Bad Blueberries", "Cool Cucumbers", "Loopy Lemons", "Excellent Eggplants", "Cute Carrots"};
     String [] teamColors = {"#AE3737", "#3785AE", "#50A759", "#E9D766", "#A682C6", "#EA8543"};
     ArrayList<Team> teamArray = new ArrayList<Team>();
 

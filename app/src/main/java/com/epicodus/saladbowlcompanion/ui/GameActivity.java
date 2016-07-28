@@ -66,7 +66,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         mGameActivityBackground.setBackgroundColor(Color.parseColor(teamArray.get(currentTeam).getColor()));
         countDownTimer.start();
-        mTeamNameTextView.setText("Current Team: " + teamArray.get(currentTeam).getName());
+        mTeamNameTextView.setText(teamArray.get(currentTeam).getName());
         mRoundTextView.setText("Round " + currentRoundNumber + "");
         mRoundRulesTextView.setText(getRoundRules(currentRoundNumber));
         mWordTextView.setText(currentWordList.get(randomNumber));

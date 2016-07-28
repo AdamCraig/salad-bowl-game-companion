@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.epicodus.saladbowlcompanion.ui.GameActivity">
+    tools:context="com.epicodus.saladbowlcompanion.ui.GameActivity"
+    android:background="@color/material_grey_850">
 
     <TextView
         android:layout_width="wrap_content"
@@ -22,9 +23,10 @@
         android:layout_height="wrap_content"
         android:text="TEAM NAME"
         android:id="@+id/teamNameTextView"
+        android:textSize="30dp"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/roundRulesTextView"
-        android:layout_alignEnd="@+id/roundRulesTextView" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorTextIcons" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,37 +34,42 @@
         android:text="Round:"
         android:id="@+id/roundTextView"
         android:layout_below="@+id/timerTextView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:textColor="@color/colorTextIcons" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Round Rules"
         android:id="@+id/roundRulesTextView"
+        android:textSize="20dp"
+        android:textColor="@color/colorTextIcons"
         android:layout_below="@+id/roundTextView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="WORD TO GUESS"
         android:id="@+id/wordTextView"
-        android:layout_below="@+id/roundRulesTextView"
+        android:textSize="40dp"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp"
-        android:textSize="40dp" />
+        android:textColor="@color/colorTextIcons"
+        android:textStyle="bold" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Correct!"
         android:id="@+id/correctButton"
-        android:layout_marginBottom="63dp"
         android:textSize="24sp"
         android:padding="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/roundTextView"
-        android:layout_toStartOf="@+id/roundTextView" />
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/wordTextView"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -71,8 +78,8 @@
         android:id="@+id/passButton"
         android:textSize="24sp"
         android:padding="15dp"
-        android:layout_alignTop="@+id/correctButton"
-        android:layout_toRightOf="@+id/roundRulesTextView"
-        android:layout_toEndOf="@+id/roundRulesTextView" />
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/correctButton"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

@@ -4,8 +4,15 @@
     <color name="colorPrimaryDark">#689F38</color>
     <color name="colorPrimaryLight">#DCEDC8</color>
     <color name="colorTextIcons">#ffffff</color>
-    <color name="colorAccent">#7C4DFF</color>
+    <color name="colorAccent">#7c4dff</color>
     <color name="colorPrimaryText">#212121</color>
     <color name="colorSecondaryText">#727272</color>
     <color name="colorDivider">#B6B6B6</color>
+
+    <color name="team1">#AE3737</color>
+    <color name="team2">#3785AE</color>
+    <color name="team3">#50A759</color>
+    <color name="team4">#E9D766</color>
+    <color name="team5">#A682C6</color>
+    <color name="team6">#EA8543</color>
 </resources>

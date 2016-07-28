@@ -73,7 +73,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Correct!"
+        android:text="Shake for Correct!"
         android:id="@+id/correctButton"
         android:textSize="24sp"
         android:padding="15dp"
@@ -86,7 +86,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pass"
+        android:text="Click to Pass"
         android:id="@+id/passButton"
         android:textSize="24sp"
         android:padding="15dp"

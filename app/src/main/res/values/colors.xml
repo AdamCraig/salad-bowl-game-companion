@@ -9,10 +9,10 @@
     <color name="colorSecondaryText">#727272</color>
     <color name="colorDivider">#B6B6B6</color>
 
-    <color name="team1">#AE3737</color>
-    <color name="team2">#3785AE</color>
-    <color name="team3">#50A759</color>
-    <color name="team4">#E9D766</color>
-    <color name="team5">#A682C6</color>
-    <color name="team6">#EA8543</color>
+    <color name="team1">#ae3737</color>
+    <color name="team2">#3785ae</color>
+    <color name="team3">#50a759</color>
+    <color name="team4">#e9d766</color>
+    <color name="team5">#a682c6</color>
+    <color name="team6">#ea8543</color>
 </resources>

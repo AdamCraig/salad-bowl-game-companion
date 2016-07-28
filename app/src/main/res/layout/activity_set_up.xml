@@ -12,38 +12,80 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="How many teams of 2?"
+        android:text="How Many Teams of 2?"
         android:id="@+id/teamsTextView"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2 Teams"
+        android:id="@+id/twoTeamButton"
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/teamsTextView"
+        android:layout_alignLeft="@+id/teamsTextView"
+        android:layout_alignStart="@+id/teamsTextView"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3 Teams"
+        android:id="@+id/threeTeamButton"
+        android:layout_alignTop="@+id/twoTeamButton"
+        android:layout_alignRight="@+id/teamsTextView"
+        android:layout_alignEnd="@+id/teamsTextView"
+        android:layout_marginRight="30dp"
+        android:layout_marginEnd="30dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4 Teams"
+        android:id="@+id/fourTeamButton"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/twoTeamButton"
+        android:layout_toLeftOf="@+id/modeTextView"
+        android:layout_toStartOf="@+id/modeTextView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5 Teams"
+        android:id="@+id/fiveTeamButton"
+        android:layout_alignTop="@+id/fourTeamButton"
         android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:layout_width="match_parent"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:id="@+id/teamEditText"
-        android:layout_marginTop="29dp"
-        android:layout_below="@+id/teamsTextView"
-        android:layout_centerHorizontal="true" />
+        android:text="6 Teams"
+        android:id="@+id/sixTeamButton"
+        android:layout_alignTop="@+id/fiveTeamButton"
+        android:layout_toRightOf="@+id/modeTextView"
+        android:layout_toEndOf="@+id/modeTextView" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="What mode?"
         android:id="@+id/modeTextView"
-        android:layout_above="@+id/creativeModeButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="44dp" />
+        android:textSize="25dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Quick"
         android:id="@+id/quickModeButton"
-        android:layout_marginBottom="90dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/teamsTextView"
-        android:layout_toStartOf="@+id/teamsTextView" />
+        android:layout_marginTop="60dp"
+        android:layout_below="@+id/modeTextView"
+        android:layout_toLeftOf="@+id/fiveTeamButton"
+        android:layout_toStartOf="@+id/fiveTeamButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -51,35 +93,34 @@
         android:text="Custom"
         android:id="@+id/creativeModeButton"
         android:layout_alignTop="@+id/quickModeButton"
-        android:layout_toRightOf="@+id/modeTextView"
-        android:layout_toEndOf="@+id/modeTextView" />
+        android:layout_toRightOf="@+id/fiveTeamButton"
+        android:layout_toEndOf="@+id/fiveTeamButton" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="\u2022 The words will be randomly generated"
+        android:text="Randomly Generated Words"
         android:id="@+id/textView"
         android:layout_alignTop="@+id/textView2"
-        android:layout_alignLeft="@+id/quickModeButton"
-        android:layout_alignStart="@+id/quickModeButton"
-        android:layout_toLeftOf="@+id/modeTextView"
-        android:layout_toStartOf="@+id/modeTextView" />
+        android:textSize="20dp"
+        android:layout_alignLeft="@+id/fourTeamButton"
+        android:layout_alignStart="@+id/fourTeamButton"
+        android:layout_alignRight="@+id/twoTeamButton"
+        android:layout_alignEnd="@+id/twoTeamButton"
+        android:textAlignment="center" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="\u2022 You will have to put in the words"
+        android:text="Enter Your Own Words"
         android:id="@+id/textView2"
         android:layout_below="@+id/creativeModeButton"
-        android:layout_alignLeft="@+id/creativeModeButton"
-        android:layout_alignStart="@+id/creativeModeButton"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="(No less than 2, no more than 6) CHANGE TO BUTTONS"
-        android:id="@+id/teamLimitsTextView"
-        android:layout_below="@+id/teamEditText"
-        android:layout_centerHorizontal="true" />
+        android:textSize="20dp"
+        android:layout_alignLeft="@+id/threeTeamButton"
+        android:layout_alignStart="@+id/threeTeamButton"
+        android:textAlignment="center"
+        android:layout_alignRight="@+id/sixTeamButton"
+        android:layout_alignEnd="@+id/sixTeamButton"
+        android:layout_marginTop="10dp" />
 
 </RelativeLayout>

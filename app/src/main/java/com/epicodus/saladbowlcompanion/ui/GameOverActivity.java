@@ -1,6 +1,7 @@
 package com.epicodus.saladbowlcompanion.ui;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -62,6 +63,7 @@ public class GameOverActivity extends AppCompatActivity implements View.OnClickL
             mTeam1Round2.setText(teamArray.get(0).getRound2Score() + "");
             mTeam1Round3.setText(teamArray.get(0).getRound3Score() + "");
             mTeam1FinalScore.setText(teamArray.get(0).getFinalScore() + "");
+            mTeam1FinalScore.setTextColor(Color.parseColor("#FFFFFF"));
         }
 
         if (teamArray.size() >= 2) {
@@ -69,6 +71,7 @@ public class GameOverActivity extends AppCompatActivity implements View.OnClickL
             mTeam2Round2.setText(teamArray.get(1).getRound2Score() + "");
             mTeam2Round3.setText(teamArray.get(1).getRound3Score() + "");
             mTeam2FinalScore.setText(teamArray.get(1).getFinalScore() + "");
+            mTeam2FinalScore.setTextColor(Color.parseColor("#FFFFFF"));
         }
 
         if (teamArray.size() >= 3) {
@@ -76,6 +79,7 @@ public class GameOverActivity extends AppCompatActivity implements View.OnClickL
             mTeam3Round2.setText(teamArray.get(2).getRound2Score() + "");
             mTeam3Round3.setText(teamArray.get(2).getRound3Score() + "");
             mTeam3FinalScore.setText(teamArray.get(2).getFinalScore() + "");
+            mTeam3FinalScore.setTextColor(Color.parseColor("#FFFFFF"));
         }
 
         if (teamArray.size() >= 4) {
@@ -83,6 +87,7 @@ public class GameOverActivity extends AppCompatActivity implements View.OnClickL
             mTeam4Round2.setText(teamArray.get(3).getRound2Score() + "");
             mTeam4Round3.setText(teamArray.get(3).getRound3Score() + "");
             mTeam4FinalScore.setText(teamArray.get(3).getFinalScore() + "");
+            mTeam4FinalScore.setTextColor(Color.parseColor("#FFFFFF"));
         }
 
         if (teamArray.size() >= 5) {
@@ -90,6 +95,7 @@ public class GameOverActivity extends AppCompatActivity implements View.OnClickL
             mTeam5Round2.setText(teamArray.get(4).getRound2Score() + "");
             mTeam5Round3.setText(teamArray.get(4).getRound3Score() + "");
             mTeam5FinalScore.setText(teamArray.get(4).getFinalScore() + "");
+            mTeam5FinalScore.setTextColor(Color.parseColor("#FFFFFF"));
         }
 
         if (teamArray.size() >= 6) {
@@ -97,7 +103,43 @@ public class GameOverActivity extends AppCompatActivity implements View.OnClickL
             mTeam6Round2.setText(teamArray.get(5).getRound2Score() + "");
             mTeam6Round3.setText(teamArray.get(5).getRound3Score() + "");
             mTeam6FinalScore.setText(teamArray.get(5).getFinalScore() + "");
+            mTeam6FinalScore.setTextColor(Color.parseColor("#FFFFFF"));
         }
+
+        int highestScore = 0;
+
+        for(int i = 0; i < teamArray.size(); i++) {
+            int teamFinalScore = teamArray.get(i).getFinalScore();
+            if (teamFinalScore > highestScore) {
+                highestScore = teamFinalScore;
+            }
+        }
+
+        if (Integer.parseInt(mTeam1FinalScore.getText().toString()) == highestScore) {
+            mTeam1FinalScore.setBackgroundColor(Color.parseColor("#dadada"));
+            mTeam1FinalScore.setTextColor(Color.parseColor("#000000"));
+        }
+        if (Integer.parseInt(mTeam2FinalScore.getText().toString()) == highestScore) {
+            mTeam2FinalScore.setBackgroundColor(Color.parseColor("#dadada"));
+            mTeam2FinalScore.setTextColor(Color.parseColor("#000000"));
+        }
+        if (Integer.parseInt(mTeam3FinalScore.getText().toString()) == highestScore) {
+            mTeam3FinalScore.setBackgroundColor(Color.parseColor("#dadada"));
+            mTeam3FinalScore.setTextColor(Color.parseColor("#000000"));
+        }
+        if (Integer.parseInt(mTeam4FinalScore.getText().toString()) == highestScore) {
+            mTeam4FinalScore.setBackgroundColor(Color.parseColor("#dadada"));
+            mTeam4FinalScore.setTextColor(Color.parseColor("#000000"));
+        }
+        if (Integer.parseInt(mTeam5FinalScore.getText().toString()) == highestScore) {
+            mTeam5FinalScore.setBackgroundColor(Color.parseColor("#dadada"));
+            mTeam5FinalScore.setTextColor(Color.parseColor("#000000"));
+        }
+        if (Integer.parseInt(mTeam6FinalScore.getText().toString()) == highestScore) {
+            mTeam6FinalScore.setBackgroundColor(Color.parseColor("#dadada"));
+            mTeam6FinalScore.setTextColor(Color.parseColor("#000000"));
+        }
+
 
 
     }

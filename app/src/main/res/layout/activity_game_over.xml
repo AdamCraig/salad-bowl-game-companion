@@ -166,12 +166,13 @@
                     android:layout_height="fill_parent"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:id="@+id/team1FinalScore"
-                    android:textAlignment="center"
                     android:paddingTop="20dp"
                     android:textSize="25dp"
                     android:textStyle="bold"
                     android:background="@color/team1"
-                    android:textColor="@color/colorTextIcons" />
+                    android:textColor="@color/team1"
+                    android:text="0"
+                    android:textAlignment="center" />
             </LinearLayout>
         </LinearLayout>
 
@@ -246,12 +247,13 @@
                     android:layout_height="fill_parent"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:id="@+id/team2FinalScore"
-                    android:textAlignment="center"
                     android:paddingTop="20dp"
                     android:textSize="25dp"
                     android:textStyle="bold"
                     android:background="@color/team2"
-                    android:textColor="@color/colorTextIcons" />
+                    android:textColor="@color/team2"
+                    android:text="0"
+                    android:textAlignment="center" />
             </LinearLayout>
         </LinearLayout>
 
@@ -326,12 +328,13 @@
                     android:layout_height="fill_parent"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:id="@+id/team3FinalScore"
-                    android:textAlignment="center"
                     android:paddingTop="20dp"
                     android:textSize="25dp"
                     android:textStyle="bold"
                     android:background="@color/team3"
-                    android:textColor="@color/colorTextIcons" />
+                    android:textColor="@color/team3"
+                    android:text="0"
+                    android:textAlignment="center" />
             </LinearLayout>
         </LinearLayout>
 
@@ -408,12 +411,13 @@
                     android:layout_height="fill_parent"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:id="@+id/team4FinalScore"
-                    android:textAlignment="center"
                     android:paddingTop="20dp"
                     android:textSize="25dp"
                     android:textStyle="bold"
                     android:background="@color/team4"
-                    android:textColor="@color/colorTextIcons" />
+                    android:textColor="@color/team4"
+                    android:text="0"
+                    android:textAlignment="center" />
             </LinearLayout>
         </LinearLayout>
 
@@ -489,12 +493,13 @@
                     android:layout_height="fill_parent"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:id="@+id/team5FinalScore"
-                    android:textAlignment="center"
                     android:paddingTop="20dp"
                     android:textSize="25dp"
                     android:textStyle="bold"
                     android:background="@color/team5"
-                    android:textColor="@color/colorTextIcons" />
+                    android:textColor="@color/team5"
+                    android:text="0"
+                    android:textAlignment="center" />
             </LinearLayout>
         </LinearLayout>
 
@@ -572,12 +577,13 @@
                     android:layout_height="fill_parent"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:id="@+id/team6FinalScore"
-                    android:textAlignment="center"
                     android:paddingTop="20dp"
                     android:textSize="25dp"
                     android:textStyle="bold"
                     android:background="@color/team6"
-                    android:textColor="@color/colorTextIcons" />
+                    android:textColor="@color/team6"
+                    android:text="0"
+                    android:textAlignment="center" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

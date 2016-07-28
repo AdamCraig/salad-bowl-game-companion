@@ -68,7 +68,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         countDownTimer.start();
         mTeamNameTextView.setText("Current Team: " + teamArray.get(currentTeam).getName());
         mRoundTextView.setText("Round " + currentRoundNumber + "");
-
+        mRoundRulesTextView.setText(getRoundRules(currentRoundNumber));
         mWordTextView.setText(currentWordList.get(randomNumber));
     }
 
@@ -132,6 +132,18 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public void onStop() {
         super.onStop();
         countDownTimer.cancel();
+    }
+
+    public String getRoundRules(int currentRoundNumber) {
+        if (currentRoundNumber == 1) {
+            return "(Describe the word without using the word itself!)";
+        } else if (currentRoundNumber == 2) {
+            return "(Use only one KEYWORD to describe the word!)";
+        } else if (currentRoundNumber == 3) {
+            return "(Don't speak at all, only use gestures!)";
+        } else {
+            return "Invalid round number.";
+        }
     }
 
 }

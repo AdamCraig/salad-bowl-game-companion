@@ -45,6 +45,9 @@ public class Team {
         } else {
             Log.v("Team.java", "Invalid round number or score");
         }
+        Log.v("round 1 score", this.getName() + "--" + round1Score + "");
+        Log.v("round 2 score", this.getName() + "--" + round2Score + "");
+        Log.v("round 3 score", this.getName() + "--" + round3Score + "");
     }
 
     public int getRound2Score() {
@@ -62,18 +65,5 @@ public class Team {
     public void setFinalScore(int score) {
         finalScore = score;
     }
-
-    public void incrementScore(int roundNumber) {
-        if (roundNumber == 1) {
-            round1Score++;
-        } else if (roundNumber == 2) {
-            round2Score++;
-        } else if (roundNumber == 3) {
-            round3Score++;
-        } else {
-            Log.v("Team.java", "Invalid round number");
-        }
-    }
-
 
 }

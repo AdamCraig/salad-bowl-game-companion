@@ -30,7 +30,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public int currentTeam;
     public long timeLeft;
     public boolean newRound;
-    public int pointsThisTurn;
+    public int pointsThisTurn = 0;
 
     @Bind(R.id.timerTextView) TextView mTimerTextView;
     @Bind(R.id.teamNameTextView) TextView mTeamNameTextView;
@@ -50,7 +50,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         masterWordList = getIntent().getStringArrayListExtra("masterWordList");
         newRound = getIntent().getBooleanExtra("newRound", false);
 
-        Log.v("newRound boolean", newRound + "");
         if (newRound) {
             currentWordList = (ArrayList<String>) masterWordList.clone();
         } else {
@@ -99,13 +98,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         if (view == mGuessButton) {
             currentWordList.remove(randomNumber);
-            Log.v("master list", masterWordList.size() + "");
             Log.v("current list", currentWordList.size() + "");
 
-            teamArray.get(currentTeam).incrementScore(currentRoundNumber);
             pointsThisTurn++;
 
             if (currentWordList.isEmpty()) {
+                teamArray.get(currentTeam).incrementRoundScore(pointsThisTurn, currentRoundNumber);
                 newRound = true;
                 Intent intent = new Intent(GameActivity.this, TeamTransitionActivity.class);
                 intent.putExtra("masterWordList", masterWordList);

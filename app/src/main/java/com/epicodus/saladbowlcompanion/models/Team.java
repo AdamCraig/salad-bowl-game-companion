@@ -35,6 +35,18 @@ public class Team {
         return round1Score;
     }
 
+    public void incrementRoundScore(int score, int roundNumber) {
+        if (roundNumber == 1) {
+            round1Score += score;
+        } else if (roundNumber == 2) {
+            round2Score += score;
+        } else if (roundNumber == 3) {
+            round3Score += score;
+        } else {
+            Log.v("Team.java", "Invalid round number or score");
+        }
+    }
+
     public int getRound2Score() {
         return round2Score;
     }

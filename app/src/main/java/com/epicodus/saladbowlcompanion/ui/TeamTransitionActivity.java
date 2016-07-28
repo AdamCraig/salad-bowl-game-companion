@@ -46,6 +46,7 @@ public class TeamTransitionActivity extends AppCompatActivity implements View.On
         currentRoundNumber = getIntent().getIntExtra("currentRoundNumber", 1);
         teamArray = Parcels.unwrap(getIntent().getParcelableExtra("teamArray"));
         pointsThisTurn = getIntent().getIntExtra("pointsThisTurn", 0);
+        newRound = getIntent().getBooleanExtra("newRound", false);
 
         mScoreTitleTextView.setText("Team " + teamArray.get(currentTeam).getName() + " got");
         mScoreTextView.setText(pointsThisTurn + "");

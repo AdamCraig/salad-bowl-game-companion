@@ -50,17 +50,20 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         masterWordList = getIntent().getStringArrayListExtra("masterWordList");
         newRound = getIntent().getBooleanExtra("newRound", false);
 
+        Log.v("newRound boolean", newRound + "");
         if (newRound) {
             currentWordList = (ArrayList<String>) masterWordList.clone();
         } else {
             currentWordList = getIntent().getStringArrayListExtra("currentWordList");
         }
 
+        newRound = false;
         currentTeam = getIntent().getIntExtra("currentTeam", 0);
         currentRoundNumber = getIntent().getIntExtra("currentRoundNumber", 1);
         teamArray = Parcels.unwrap(getIntent().getParcelableExtra("teamArray"));
 
         countDownTimer.start();
+        mTeamNameTextView.setText(teamArray.get(currentTeam).getName());
         mRoundTextView.setText("Round " + currentRoundNumber + "");
 
         mWordTextView.setText(currentWordList.get(randomNumber));
@@ -77,6 +80,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         public void onFinish() {
             mTimerTextView.setText("Time!");
+            teamArray.get(currentTeam).incrementRoundScore(pointsThisTurn, currentRoundNumber);
             Intent intent = new Intent (GameActivity.this, TeamTransitionActivity.class);
             intent.putExtra("masterWordList", masterWordList);
             intent.putExtra("currentWordList", currentWordList);
@@ -103,14 +107,30 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
             if (currentWordList.isEmpty()) {
                 newRound = true;
+                Intent intent = new Intent(GameActivity.this, TeamTransitionActivity.class);
+                intent.putExtra("masterWordList", masterWordList);
+                intent.putExtra("currentTeam", currentTeam);
+                intent.putExtra("currentRoundNumber", currentRoundNumber);
+                intent.putExtra("teamArray", Parcels.wrap(teamArray));
+                intent.putExtra("newRound", newRound);
+                intent.putExtra("pointsThisTurn", pointsThisTurn);
+                startActivity(intent);
                 // Transition to new round, pass turn to next team
                 // Pass "round over" boolean to TeamTransition?
                 // Pass timeLeft to next activity to save it and perhaps add it to that team's next turn?
             }
         }
 
-        randomNumber = randomNumberGenerator.nextInt(currentWordList.size());
-        mWordTextView.setText(currentWordList.get(randomNumber));
+        if (!currentWordList.isEmpty()) {
+            randomNumber = randomNumberGenerator.nextInt(currentWordList.size());
+            mWordTextView.setText(currentWordList.get(randomNumber));
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        countDownTimer.cancel();
     }
 
 }

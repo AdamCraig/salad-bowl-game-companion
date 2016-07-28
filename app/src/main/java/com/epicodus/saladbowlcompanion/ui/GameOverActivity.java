@@ -1,5 +1,6 @@
 package com.epicodus.saladbowlcompanion.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class GameOverActivity extends AppCompatActivity {
+public class GameOverActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Bind(R.id.team1Round1) TextView mTeam1Round1;
     @Bind(R.id.team1Round2) TextView mTeam1Round2;
@@ -46,31 +47,15 @@ public class GameOverActivity extends AppCompatActivity {
     @Bind(R.id.playButton) Button mPlayButton;
 
     public ArrayList<Team> teamArray = new ArrayList<>();
-    public ArrayList<View> textViewArray = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_over);
         ButterKnife.bind(this);
+        mPlayButton.setOnClickListener(this);
 
         teamArray = Parcels.unwrap(getIntent().getParcelableExtra("teamArray"));
-
-//        for (int i = 0; i < teamArray.size(); i++) {
-//            ArrayList<String> viewNames = new ArrayList<>();
-//            String mTeamXRound1 = "mTeam" + (i + 1) + "Round1";
-//            viewNames.add(mTeamXRound1);
-//            String mTeamXRound2 = "mTeam" + (i + 1) + "Round2";
-//            viewNames.add(mTeamXRound2);
-//            String mTeamXRound3 = "mTeam" + (i + 1) + "Round3";
-//            viewNames.add(mTeamXRound3);
-//            String mTeamXFinalScore = "mTeam" + (i + 1) + "FinalScore";
-//            viewNames.add(mTeamXFinalScore);
-//            for (String viewName : viewNames) {
-//                Log.v("GameOverActivity", viewName);
-//                View view = (TextView) findViewById(R.id.viewName);
-//            }
-//        }
 
         if (teamArray.size() > 1) {
             mTeam1Round1.setText(teamArray.get(0).getRound1Score() + "");
@@ -115,5 +100,13 @@ public class GameOverActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mPlayButton) {
+            Intent intent = new Intent(GameOverActivity.this, SetUpActivity.class);
+            startActivity(intent);
+        }
     }
 }

@@ -25,6 +25,8 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
 
     ArrayList<String> masterWordList = new ArrayList<>();
     int numberOfTeams;
+    public boolean newRound = true;
+
 
     String[] teamNames = {"Team 1", "Team 2", "Team 3", "Team 4", "Team 5", "Team 6"};
     String [] teamColors = {"#red", "#blue", "#green", "#yellow", "#purple", "#orange"};
@@ -100,6 +102,7 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
         intent.putExtra("teamArray", Parcels.wrap(teamArray));
         intent.putExtra("currentTeam", 0);
         intent.putExtra("currentRoundNumber", 1);
+        intent.putExtra("newRound", newRound);
         startActivity(intent);
     }
 

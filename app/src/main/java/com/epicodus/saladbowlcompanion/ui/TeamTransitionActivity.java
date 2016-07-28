@@ -30,8 +30,7 @@ public class TeamTransitionActivity extends AppCompatActivity implements View.On
     public ArrayList<Team> teamArray = new ArrayList<>();
     public int currentRoundNumber;
     public int currentTeam;
-    public boolean roundOver = false;
-    public boolean newRound = false;
+    public boolean newRound;
     public int pointsThisTurn;
     public long timeLeft;
 
@@ -46,7 +45,6 @@ public class TeamTransitionActivity extends AppCompatActivity implements View.On
         currentTeam = getIntent().getIntExtra("currentTeam", 0);
         currentRoundNumber = getIntent().getIntExtra("currentRoundNumber", 1);
         teamArray = Parcels.unwrap(getIntent().getParcelableExtra("teamArray"));
-        roundOver = getIntent().getBooleanExtra("roundOver", false);
         pointsThisTurn = getIntent().getIntExtra("pointsThisTurn", 0);
 
         mScoreTitleTextView.setText("Team " + teamArray.get(currentTeam).getName() + " got");
@@ -60,8 +58,7 @@ public class TeamTransitionActivity extends AppCompatActivity implements View.On
         }
         mNextTurnButton.setText("START " + teamArray.get(currentTeam).getName() + "'S TURN");
 
-        if (roundOver) {
-            newRound = true;
+        if (newRound) {
             currentRoundNumber++;
         }
 

@@ -29,8 +29,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public int currentRoundNumber;
     public int currentTeam;
     public long timeLeft;
-    public boolean roundOver = false;
-    public boolean newRound = true;
+    public boolean newRound;
     public int pointsThisTurn;
 
     @Bind(R.id.timerTextView) TextView mTimerTextView;
@@ -49,7 +48,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         mGuessButton.setOnClickListener(this);
         mPassButton.setOnClickListener(this);
         masterWordList = getIntent().getStringArrayListExtra("masterWordList");
-        newRound = getIntent().getBooleanExtra("newRound", true);
+        newRound = getIntent().getBooleanExtra("newRound", false);
 
         if (newRound) {
             currentWordList = (ArrayList<String>) masterWordList.clone();
@@ -64,7 +63,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         countDownTimer.start();
         mRoundTextView.setText("Round " + currentRoundNumber + "");
 
-        // TODO: Fix this crash
         mWordTextView.setText(currentWordList.get(randomNumber));
     }
 
@@ -85,7 +83,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("currentTeam", currentTeam);
             intent.putExtra("currentRoundNumber", currentRoundNumber);
             intent.putExtra("teamArray", Parcels.wrap(teamArray));
-            intent.putExtra("roundOver", roundOver);
+            intent.putExtra("newRound", newRound);
             intent.putExtra("pointsThisTurn", pointsThisTurn);
             startActivity(intent);
         }
@@ -104,7 +102,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             pointsThisTurn++;
 
             if (currentWordList.isEmpty()) {
-                roundOver = true;
+                newRound = true;
                 // Transition to new round, pass turn to next team
                 // Pass "round over" boolean to TeamTransition?
                 // Pass timeLeft to next activity to save it and perhaps add it to that team's next turn?
@@ -114,6 +112,5 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         randomNumber = randomNumberGenerator.nextInt(currentWordList.size());
         mWordTextView.setText(currentWordList.get(randomNumber));
     }
-
 
 }

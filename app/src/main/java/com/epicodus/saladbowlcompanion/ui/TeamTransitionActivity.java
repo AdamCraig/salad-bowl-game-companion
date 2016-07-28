@@ -1,10 +1,12 @@
 package com.epicodus.saladbowlcompanion.ui;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.epicodus.saladbowlcompanion.R;
@@ -24,6 +26,9 @@ public class TeamTransitionActivity extends AppCompatActivity implements View.On
     @Bind(R.id.scoreClosingTextView) TextView mScoreClosingTextView;
     @Bind(R.id.nextTurnButton) Button mNextTurnButton;
     @Bind(R.id.getReadyTextView) TextView mGetReadyTextView;
+    @Bind(R.id.roundNumberTextView) TextView mRoundNumberTextView;
+    @Bind(R.id.newRoundStartTextView) TextView mNewRoundStartTextView;
+    @Bind(R.id.teamTransitionBackground) RelativeLayout mTeamTransitionBackground;
 
     public ArrayList<String> masterWordList = new ArrayList<String>();
     public ArrayList<String> currentWordList = new ArrayList<String>();
@@ -37,7 +42,7 @@ public class TeamTransitionActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_team_transitions);
+        setContentView(R.layout.activity_team_transition);
         ButterKnife.bind(this);
 
         masterWordList = getIntent().getStringArrayListExtra("masterWordList");
@@ -48,6 +53,7 @@ public class TeamTransitionActivity extends AppCompatActivity implements View.On
         pointsThisTurn = getIntent().getIntExtra("pointsThisTurn", 0);
         newRound = getIntent().getBooleanExtra("newRound", false);
 
+        mTeamTransitionBackground.setBackgroundColor(Color.parseColor(assignRoundBackgroundColor(currentRoundNumber)));
         mScoreTitleTextView.setText("Team " + teamArray.get(currentTeam).getName() + " got");
         mScoreTextView.setText(pointsThisTurn + "");
         if (currentTeam + 1 == teamArray.size()) {
@@ -58,9 +64,12 @@ public class TeamTransitionActivity extends AppCompatActivity implements View.On
             mGetReadyTextView.setText("Team " + teamArray.get(currentTeam).getName() + ", get ready!");
         }
         mNextTurnButton.setText("START " + teamArray.get(currentTeam).getName() + "'S TURN");
+        mRoundNumberTextView.setText("Current Round: " + currentRoundNumber + "");
 
         if (newRound) {
             currentRoundNumber++;
+            mNewRoundStartTextView.setText("Round " + currentRoundNumber + " is about to start!");
+            mNewRoundStartTextView.setVisibility(View.VISIBLE);
         }
 
         mNextTurnButton.setOnClickListener(this);
@@ -77,6 +86,18 @@ public class TeamTransitionActivity extends AppCompatActivity implements View.On
             intent.putExtra("teamArray", Parcels.wrap(teamArray));
             intent.putExtra("newRound", newRound);
             startActivity(intent);
+        }
+    }
+
+    public String assignRoundBackgroundColor(int round) {
+        if (round == 1) {
+            return "#689F38";
+        } else if (round == 2) {
+            return "#7C4DFF";
+        } else if (round == 3) {
+            return "#009688";
+        } else {
+            return "FFFFFF";
         }
     }
 }

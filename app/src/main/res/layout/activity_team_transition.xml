@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ui.TeamTransitionActivity">
+    tools:context=".ui.TeamTransitionActivity"
+    android:id="@+id/teamTransitionBackground">
 
     <TextView
         android:layout_width="wrap_content"
@@ -15,8 +16,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Team Y, get ready!"
         android:id="@+id/getReadyTextView"
-        android:layout_marginTop="74dp"
-        android:layout_below="@+id/scoreClosingTextView"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -25,9 +25,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Team X got"
         android:id="@+id/scoreTitleTextView"
+        android:layout_marginTop="53dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,9 +35,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="8"
         android:id="@+id/scoreTextView"
+        android:layout_marginTop="42dp"
         android:layout_below="@+id/scoreTitleTextView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp" />
+        android:textSize="32sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -45,9 +46,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="point(s) that turn!"
         android:id="@+id/scoreClosingTextView"
+        android:layout_marginTop="40dp"
         android:layout_below="@+id/scoreTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -59,4 +60,27 @@
         android:layout_marginTop="120dp"
         android:textSize="24sp"
         android:padding="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Round 1"
+        android:id="@+id/roundNumberTextView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Round 2 Is About To Start!"
+        android:id="@+id/newRoundStartTextView"
+        android:layout_below="@+id/getReadyTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:drawableLeft="@android:drawable/ic_dialog_alert"
+        android:drawableTint="@android:color/holo_orange_light"
+        android:drawablePadding="10dp"
+        android:visibility="invisible" />
 </RelativeLayout>

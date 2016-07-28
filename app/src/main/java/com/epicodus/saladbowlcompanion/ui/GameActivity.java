@@ -49,9 +49,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.passButton) Button mPassButton;
     @Bind(R.id.gameActivityBackground) RelativeLayout mGameActivityBackground;
 
-    private ShakeDetector mShakeDetector;
-    private SensorManager mSensorManager;
-    private Sensor mAccelerometer;
+//    private ShakeDetector mShakeDetector;
+//    private SensorManager mSensorManager;
+//    private Sensor mAccelerometer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,39 +63,39 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         masterWordList = getIntent().getStringArrayListExtra("masterWordList");
         newRound = getIntent().getBooleanExtra("newRound", false);
 
-        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        mShakeDetector = new ShakeDetector(new ShakeDetector.OnShakeListener() {
-            @Override //http://stackoverflow.com/questions/2317428/android-i-want-to-shake-it
-            public void onShake() {
-
-                currentWordList.remove(randomNumber);
-                Log.v("current list", currentWordList.size() + "");
-
-                pointsThisTurn++;
-
-                if (currentWordList.isEmpty()) {
-                    teamArray.get(currentTeam).incrementRoundScore(pointsThisTurn, currentRoundNumber);
-                    newRound = true;
-                    Intent intent = new Intent(GameActivity.this, TeamTransitionActivity.class);
-                    intent.putExtra("masterWordList", masterWordList);
-                    intent.putExtra("currentTeam", currentTeam);
-                    intent.putExtra("currentRoundNumber", currentRoundNumber);
-                    intent.putExtra("teamArray", Parcels.wrap(teamArray));
-                    intent.putExtra("newRound", newRound);
-                    intent.putExtra("pointsThisTurn", pointsThisTurn);
-                    startActivity(intent);
-                    // Transition to new round, pass turn to next team
-                    // Pass "round over" boolean to TeamTransition?
-                    // Pass timeLeft to next activity to save it and perhaps add it to that team's next turn?
-                }
-                if (!currentWordList.isEmpty()) {
-                    randomNumber = randomNumberGenerator.nextInt(currentWordList.size());
-                    mWordTextView.setText(currentWordList.get(randomNumber));
-                }
-                Log.d("SHAKE SHAKE SHAKE", "SHAKE YOUR BOOTY");
-            }
-        });
+//        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+//        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+//        mShakeDetector = new ShakeDetector(new ShakeDetector.OnShakeListener() {
+//            @Override //http://stackoverflow.com/questions/2317428/android-i-want-to-shake-it
+//            public void onShake() {
+//
+//                currentWordList.remove(randomNumber);
+//                Log.v("current list", currentWordList.size() + "");
+//
+//                pointsThisTurn++;
+//
+//                if (currentWordList.isEmpty()) {
+//                    teamArray.get(currentTeam).incrementRoundScore(pointsThisTurn, currentRoundNumber);
+//                    newRound = true;
+//                    Intent intent = new Intent(GameActivity.this, TeamTransitionActivity.class);
+//                    intent.putExtra("masterWordList", masterWordList);
+//                    intent.putExtra("currentTeam", currentTeam);
+//                    intent.putExtra("currentRoundNumber", currentRoundNumber);
+//                    intent.putExtra("teamArray", Parcels.wrap(teamArray));
+//                    intent.putExtra("newRound", newRound);
+//                    intent.putExtra("pointsThisTurn", pointsThisTurn);
+//                    startActivity(intent);
+//                    // Transition to new round, pass turn to next team
+//                    // Pass "round over" boolean to TeamTransition?
+//                    // Pass timeLeft to next activity to save it and perhaps add it to that team's next turn?
+//                }
+//                if (!currentWordList.isEmpty()) {
+//                    randomNumber = randomNumberGenerator.nextInt(currentWordList.size());
+//                    mWordTextView.setText(currentWordList.get(randomNumber));
+//                }
+//                Log.d("SHAKE SHAKE SHAKE", "SHAKE YOUR BOOTY");
+//            }
+//        });
 
         if (newRound) {
             currentWordList = (ArrayList<String>) masterWordList.clone();
@@ -151,33 +151,33 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
 
 //        SAVING FOR EMULATOR DEMO PURPOSES RATHER THAN USING SHAKE GESTURE
-//        if (view == mGuessButton) {
-//            currentWordList.remove(randomNumber);
-//            Log.v("current list", currentWordList.size() + "");
-//
-//            pointsThisTurn++;
-//
-//            if (currentWordList.isEmpty()) {
-//                teamArray.get(currentTeam).incrementRoundScore(pointsThisTurn, currentRoundNumber);
-//                newRound = true;
-//                Intent intent = new Intent(GameActivity.this, TeamTransitionActivity.class);
-//                intent.putExtra("masterWordList", masterWordList);
-//                intent.putExtra("currentTeam", currentTeam);
-//                intent.putExtra("currentRoundNumber", currentRoundNumber);
-//                intent.putExtra("teamArray", Parcels.wrap(teamArray));
-//                intent.putExtra("newRound", newRound);
-//                intent.putExtra("pointsThisTurn", pointsThisTurn);
-//                startActivity(intent);
-//                // Transition to new round, pass turn to next team
-//                // Pass "round over" boolean to TeamTransition?
-//                // Pass timeLeft to next activity to save it and perhaps add it to that team's next turn?
-//            }
-//        }
+        if (view == mGuessButton) {
+            currentWordList.remove(randomNumber);
+            Log.v("current list", currentWordList.size() + "");
 
-//        if (!currentWordList.isEmpty()) {
-//            randomNumber = randomNumberGenerator.nextInt(currentWordList.size());
-//            mWordTextView.setText(currentWordList.get(randomNumber));
-//        }
+            pointsThisTurn++;
+
+            if (currentWordList.isEmpty()) {
+                teamArray.get(currentTeam).incrementRoundScore(pointsThisTurn, currentRoundNumber);
+                newRound = true;
+                Intent intent = new Intent(GameActivity.this, TeamTransitionActivity.class);
+                intent.putExtra("masterWordList", masterWordList);
+                intent.putExtra("currentTeam", currentTeam);
+                intent.putExtra("currentRoundNumber", currentRoundNumber);
+                intent.putExtra("teamArray", Parcels.wrap(teamArray));
+                intent.putExtra("newRound", newRound);
+                intent.putExtra("pointsThisTurn", pointsThisTurn);
+                startActivity(intent);
+                // Transition to new round, pass turn to next team
+                // Pass "round over" boolean to TeamTransition?
+                // Pass timeLeft to next activity to save it and perhaps add it to that team's next turn?
+            }
+        }
+
+        if (!currentWordList.isEmpty()) {
+            randomNumber = randomNumberGenerator.nextInt(currentWordList.size());
+            mWordTextView.setText(currentWordList.get(randomNumber));
+        }
     }
 
     @Override
@@ -198,16 +198,16 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mSensorManager.registerListener(mShakeDetector, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
-    }
-
-    @Override
-    protected void onPause() {
-        mSensorManager.unregisterListener(mShakeDetector);
-        super.onPause();
-    }
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        mSensorManager.registerListener(mShakeDetector, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
+//    }
+//
+//    @Override
+//    protected void onPause() {
+//        mSensorManager.unregisterListener(mShakeDetector);
+//        super.onPause();
+//    }
 
 }

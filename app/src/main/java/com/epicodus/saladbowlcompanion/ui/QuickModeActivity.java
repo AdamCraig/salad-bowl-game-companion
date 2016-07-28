@@ -29,7 +29,7 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
 
 
     String[] teamNames = {"Luca", "Adam", "Nadiya", "Ashley", "Dog", "Cat"};
-    String [] teamColors = {"#red", "#blue", "#green", "#yellow", "#purple", "#orange"};
+    String [] teamColors = {"#AE3737", "#3785AE", "#50A759", "#E9D766", "#A682C6", "#EA8543"};
     ArrayList<Team> teamArray = new ArrayList<Team>();
 
     @Bind(R.id.AButton) Button AButton;

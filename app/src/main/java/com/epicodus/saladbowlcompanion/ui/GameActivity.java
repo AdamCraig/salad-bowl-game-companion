@@ -1,11 +1,13 @@
 package com.epicodus.saladbowlcompanion.ui;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.util.Log;
 import com.epicodus.saladbowlcompanion.R;
@@ -39,6 +41,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.wordTextView) TextView mWordTextView;
     @Bind(R.id.correctButton) Button mGuessButton;
     @Bind(R.id.passButton) Button mPassButton;
+    @Bind(R.id.gameActivityBackground) RelativeLayout mGameActivityBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         currentRoundNumber = getIntent().getIntExtra("currentRoundNumber", 1);
         teamArray = Parcels.unwrap(getIntent().getParcelableExtra("teamArray"));
 
+        mGameActivityBackground.setBackgroundColor(Color.parseColor(teamArray.get(currentTeam).getColor()));
         countDownTimer.start();
         mTeamNameTextView.setText(teamArray.get(currentTeam).getName());
         mRoundTextView.setText("Round " + currentRoundNumber + "");

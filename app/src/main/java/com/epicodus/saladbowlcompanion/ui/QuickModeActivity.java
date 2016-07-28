@@ -96,7 +96,7 @@ public class QuickModeActivity extends AppCompatActivity implements View.OnClick
         ArrayList<String> letterWordList = filterByLetter(masterWordList, letter);
 
         Intent intent = new Intent(QuickModeActivity.this, GameActivity.class);
-        intent.putExtra("gameWordList", calculateCurrentGameWordArray(numberOfTeams, letterWordList));
+        intent.putExtra("masterWordList", calculateCurrentGameWordArray(numberOfTeams, letterWordList));
         intent.putExtra("teamArray", Parcels.wrap(teamArray));
         intent.putExtra("currentTeam", 0);
         intent.putExtra("currentRoundNumber", 1);

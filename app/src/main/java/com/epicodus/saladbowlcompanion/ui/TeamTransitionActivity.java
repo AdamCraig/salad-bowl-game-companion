@@ -41,7 +41,7 @@ public class TeamTransitionActivity extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_team_transitions);
         ButterKnife.bind(this);
 
-        masterWordList = getIntent().getStringArrayListExtra("gameWordList");
+        masterWordList = getIntent().getStringArrayListExtra("masterWordList");
         currentWordList = getIntent().getStringArrayListExtra("currentWordList");
         currentTeam = getIntent().getIntExtra("currentTeam", 0);
         currentRoundNumber = getIntent().getIntExtra("currentRoundNumber", 1);

@@ -48,7 +48,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
         mGuessButton.setOnClickListener(this);
         mPassButton.setOnClickListener(this);
-        masterWordList = getIntent().getStringArrayListExtra("gameWordList");
+        masterWordList = getIntent().getStringArrayListExtra("masterWordList");
         newRound = getIntent().getBooleanExtra("newRound", true);
 
         if (newRound) {
@@ -65,7 +65,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         mRoundTextView.setText("Round " + currentRoundNumber + "");
 
         // TODO: Fix this crash
-//        mWordTextView.setText(currentWordList.get(randomNumber));
+        mWordTextView.setText(currentWordList.get(randomNumber));
     }
 
 

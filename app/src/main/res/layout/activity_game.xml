@@ -12,12 +12,14 @@
     android:id="@+id/gameActivityBackground">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:id="@+id/timerTextView"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/roundRulesTextView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp" />
+        android:layout_marginTop="27dp"
+        android:textSize="40sp"
+        android:textAlignment="center" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,10 +36,11 @@
         android:layout_height="wrap_content"
         android:text="Round:"
         android:id="@+id/roundTextView"
-        android:layout_below="@+id/timerTextView"
-        android:layout_centerHorizontal="true"
         android:textSize="20dp"
-        android:textColor="@color/colorTextIcons" />
+        android:textColor="@color/colorTextIcons"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/teamNameTextView"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,8 +50,7 @@
         android:textSize="20dp"
         android:textColor="@color/colorTextIcons"
         android:layout_below="@+id/roundTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"

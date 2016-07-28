@@ -66,7 +66,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         mGameActivityBackground.setBackgroundColor(Color.parseColor(teamArray.get(currentTeam).getColor()));
         countDownTimer.start();
-        mTeamNameTextView.setText(teamArray.get(currentTeam).getName());
+        mTeamNameTextView.setText("Current Team: " + teamArray.get(currentTeam).getName());
         mRoundTextView.setText("Round " + currentRoundNumber + "");
 
         mWordTextView.setText(currentWordList.get(randomNumber));
@@ -77,12 +77,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         // https://developer.android.com/reference/android/os/CountDownTimer.html
 
         public void onTick(long millisUntilFinished) {
-            mTimerTextView.setText("Time Remaining: " + millisUntilFinished / 1000);
+            mTimerTextView.setText(millisUntilFinished / 1000 + "");
             timeLeft = millisUntilFinished;
         }
 
         public void onFinish() {
-            mTimerTextView.setText("Time!");
             teamArray.get(currentTeam).incrementRoundScore(pointsThisTurn, currentRoundNumber);
             Intent intent = new Intent (GameActivity.this, TeamTransitionActivity.class);
             intent.putExtra("masterWordList", masterWordList);

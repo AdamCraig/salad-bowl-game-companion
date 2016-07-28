@@ -1,7 +1,10 @@
 package com.epicodus.saladbowlcompanion.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,8 +13,11 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.util.Log;
+import android.widget.Toast;
+
 import com.epicodus.saladbowlcompanion.R;
 import com.epicodus.saladbowlcompanion.models.Team;
+import com.epicodus.saladbowlcompanion.util.ShakeDetector;
 
 import org.parceler.Parcels;
 
@@ -43,6 +49,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.passButton) Button mPassButton;
     @Bind(R.id.gameActivityBackground) RelativeLayout mGameActivityBackground;
 
+    private ShakeDetector mShakeDetector;
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +62,40 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         mPassButton.setOnClickListener(this);
         masterWordList = getIntent().getStringArrayListExtra("masterWordList");
         newRound = getIntent().getBooleanExtra("newRound", false);
+
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mShakeDetector = new ShakeDetector(new ShakeDetector.OnShakeListener() {
+            @Override //http://stackoverflow.com/questions/2317428/android-i-want-to-shake-it
+            public void onShake() {
+
+                currentWordList.remove(randomNumber);
+                Log.v("current list", currentWordList.size() + "");
+
+                pointsThisTurn++;
+
+                if (currentWordList.isEmpty()) {
+                    teamArray.get(currentTeam).incrementRoundScore(pointsThisTurn, currentRoundNumber);
+                    newRound = true;
+                    Intent intent = new Intent(GameActivity.this, TeamTransitionActivity.class);
+                    intent.putExtra("masterWordList", masterWordList);
+                    intent.putExtra("currentTeam", currentTeam);
+                    intent.putExtra("currentRoundNumber", currentRoundNumber);
+                    intent.putExtra("teamArray", Parcels.wrap(teamArray));
+                    intent.putExtra("newRound", newRound);
+                    intent.putExtra("pointsThisTurn", pointsThisTurn);
+                    startActivity(intent);
+                    // Transition to new round, pass turn to next team
+                    // Pass "round over" boolean to TeamTransition?
+                    // Pass timeLeft to next activity to save it and perhaps add it to that team's next turn?
+                }
+                if (!currentWordList.isEmpty()) {
+                    randomNumber = randomNumberGenerator.nextInt(currentWordList.size());
+                    mWordTextView.setText(currentWordList.get(randomNumber));
+                }
+                Log.d("SHAKE SHAKE SHAKE", "SHAKE YOUR BOOTY");
+            }
+        });
 
         if (newRound) {
             currentWordList = (ArrayList<String>) masterWordList.clone();
@@ -99,33 +143,41 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
-        if (view == mGuessButton) {
-            currentWordList.remove(randomNumber);
-            Log.v("current list", currentWordList.size() + "");
-
-            pointsThisTurn++;
-
-            if (currentWordList.isEmpty()) {
-                teamArray.get(currentTeam).incrementRoundScore(pointsThisTurn, currentRoundNumber);
-                newRound = true;
-                Intent intent = new Intent(GameActivity.this, TeamTransitionActivity.class);
-                intent.putExtra("masterWordList", masterWordList);
-                intent.putExtra("currentTeam", currentTeam);
-                intent.putExtra("currentRoundNumber", currentRoundNumber);
-                intent.putExtra("teamArray", Parcels.wrap(teamArray));
-                intent.putExtra("newRound", newRound);
-                intent.putExtra("pointsThisTurn", pointsThisTurn);
-                startActivity(intent);
-                // Transition to new round, pass turn to next team
-                // Pass "round over" boolean to TeamTransition?
-                // Pass timeLeft to next activity to save it and perhaps add it to that team's next turn?
+        if (view == mPassButton) {
+            if (!currentWordList.isEmpty()) {
+            randomNumber = randomNumberGenerator.nextInt(currentWordList.size());
+            mWordTextView.setText(currentWordList.get(randomNumber));
             }
         }
 
-        if (!currentWordList.isEmpty()) {
-            randomNumber = randomNumberGenerator.nextInt(currentWordList.size());
-            mWordTextView.setText(currentWordList.get(randomNumber));
-        }
+//        SAVING FOR EMULATOR DEMO PURPOSES RATHER THAN USING SHAKE GESTURE
+//        if (view == mGuessButton) {
+//            currentWordList.remove(randomNumber);
+//            Log.v("current list", currentWordList.size() + "");
+//
+//            pointsThisTurn++;
+//
+//            if (currentWordList.isEmpty()) {
+//                teamArray.get(currentTeam).incrementRoundScore(pointsThisTurn, currentRoundNumber);
+//                newRound = true;
+//                Intent intent = new Intent(GameActivity.this, TeamTransitionActivity.class);
+//                intent.putExtra("masterWordList", masterWordList);
+//                intent.putExtra("currentTeam", currentTeam);
+//                intent.putExtra("currentRoundNumber", currentRoundNumber);
+//                intent.putExtra("teamArray", Parcels.wrap(teamArray));
+//                intent.putExtra("newRound", newRound);
+//                intent.putExtra("pointsThisTurn", pointsThisTurn);
+//                startActivity(intent);
+//                // Transition to new round, pass turn to next team
+//                // Pass "round over" boolean to TeamTransition?
+//                // Pass timeLeft to next activity to save it and perhaps add it to that team's next turn?
+//            }
+//        }
+
+//        if (!currentWordList.isEmpty()) {
+//            randomNumber = randomNumberGenerator.nextInt(currentWordList.size());
+//            mWordTextView.setText(currentWordList.get(randomNumber));
+//        }
     }
 
     @Override
@@ -144,6 +196,18 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             return "Invalid round number.";
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
+    }
+
+    @Override
+    protected void onPause() {
+        mSensorManager.unregisterListener(mShakeDetector);
+        super.onPause();
     }
 
 }

@@ -29,10 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.aboutTextView) TextView mAboutTextView;
     @Bind(R.id. logoTextView) TextView mLogoTextView;
 
-    private ShakeDetector mShakeDetector;
-    private SensorManager mSensorManager;
-    private Sensor mAccelerometer;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,16 +43,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mRulesButton.setOnClickListener(this);
         mAboutTextView.setOnClickListener(this);
 
-        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        mShakeDetector = new ShakeDetector(new ShakeDetector.OnShakeListener() {
-            @Override //http://stackoverflow.com/questions/2317428/android-i-want-to-shake-it
-            public void onShake() {
-                Log.d("SHAKE", "SHAAAAAAAAKE");
-                Toast toast = Toast.makeText(getApplicationContext(), "Device has shaken.", Toast.LENGTH_LONG);
-                toast.show();
-            }
-        });
     }
 
     @Override
@@ -75,17 +61,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent (MainActivity.this, AboutActivity.class);
             startActivity(intent);
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mSensorManager.registerListener(mShakeDetector, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
-    }
-
-    @Override
-    protected void onPause() {
-        mSensorManager.unregisterListener(mShakeDetector);
-        super.onPause();
     }
 }

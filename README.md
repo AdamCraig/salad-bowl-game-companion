@@ -1,3 +1,7 @@
+![First Four Screens] (screenshot1.png)
+
+![Next Four Screens] (screenshot2.png)
+
 # _Salad Bowl Companion App_
 
 #### _An Android app meant to be used to facilitate playing the party game Salad Bowl, in which teams of two take turns guessing words with increasing levels of difficulty._
@@ -16,7 +20,7 @@ _Salad Bowl is a fast-paced word-guessing party game meant for teams of two. On 
 
 ## Known Bugs
 
-_No known bugs at this time._
+_The UI of the app is only optimized for phones at this time. The app is functional but not visually appealing on tablets or very large phones._
 
 ## Support and contact details
 

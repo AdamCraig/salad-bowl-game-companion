@@ -10,6 +10,8 @@
     tools:context="com.epicodus.saladbowlcompanion.ui.QuickModeActivity"
     android:background="@color/material_grey_850">
 
+
+
     <Button
         android:layout_width="95dp"
         android:layout_height="95dp"
@@ -21,7 +23,7 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:padding="20dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="60dp"
         android:backgroundTint="#8bc34a" />
 
     <Button
@@ -270,5 +272,18 @@
         android:layout_alignRight="@+id/SButton"
         android:layout_alignEnd="@+id/SButton"
         android:backgroundTint="#f3f9ec" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Choose a letter theme for this game!"
+        android:id="@+id/quickStartRulesTextView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp" />
 
 </RelativeLayout>

@@ -1,6 +1,6 @@
-![First Four Screens] (screenshot1.png)
+![First Four Screens](screenshot1.png)
 
-![Next Four Screens] (screenshot2.png)
+![Next Four Screens](screenshot2.png)
 
 # _Salad Bowl Companion App_
 
